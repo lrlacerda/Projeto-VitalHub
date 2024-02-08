@@ -13,3 +13,12 @@ export const Input = styled.TextInput.attrs({
   font-size: 16px;
   font-family: "MontserratAlternates_600SemiBold";
 `;
+
+export const InputPassword = styled(Input)`
+  width: 70px;
+  height: 66px;
+  margin-top: -250px;
+  font-size: 40px;
+  padding: 0%;
+  padding-left: 20px;
+`;

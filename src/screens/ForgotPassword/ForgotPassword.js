@@ -1,16 +1,21 @@
-import { Container } from "../../components/Container/Style";
+import { Container, ContainerIcon } from "../../components/Container/Style";
 import { Logo } from "../../components/Logo/Style";
 import { Title } from "../../components/Title/Style";
 import { Textbasic } from "../../components/Text/Text";
-import { Button, ButtonForgotPassword, ButtonTitle } from "../../components/Button/style";
+import {
+  ButtonForgotPassword,
+  ButtonTitle,
+} from "../../components/Button/style";
 import { Input } from "../../components/Input/Input";
 
-import { Feather } from '@expo/vector-icons';
+import { Feather } from "@expo/vector-icons";
 
 export const ForgotPassword = () => {
   return (
     <Container>
-      <Feather name="arrow-left-circle" size={24} color="#49B3BA" />
+      <ContainerIcon>
+        <Feather name="arrow-left-circle" size={35} color="#49B3BA" />
+      </ContainerIcon>
       <Logo source={require("../../assets/VitalHubLogo.png")} />
 
       <Title>Recuperar senha</Title>

@@ -16,3 +16,14 @@ export const LinkAccount = styled(LinkMedium)`
     font-family: 'MontserratAlternates_600SemiBold';
     margin-left: 5px;
 `
+export const LinkMediumEmail = styled(LinkMedium)`
+    color: #496BBA;
+    margin: 0;
+    align-self: center;
+`
+export const LinkMediumEmailReenviar = styled(LinkMedium)`
+    align-items: center;
+   margin-left: 135px;
+   margin-top: 30px
+    
+`
