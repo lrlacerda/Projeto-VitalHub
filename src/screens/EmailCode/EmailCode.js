@@ -11,6 +11,7 @@ import { LinkMediumEmail, LinkMediumEmailReenviar } from "../../components/Links
 import { Entypo } from "@expo/vector-icons";
 import { InputPassword } from "../../components/Input/Input";
 import {
+  ButtonEmailCode,
   ButtonForgotPassword,
   ButtonTitle,
 } from "../../components/Button/style";
@@ -35,9 +36,9 @@ export const EmailCode = () => {
         <InputPassword placeholder="0" />
       </ContainerEmailCode>
 
-      <ButtonForgotPassword>
+      <ButtonEmailCode>
         <ButtonTitle>ENTRAR</ButtonTitle>
-      </ButtonForgotPassword>
+      </ButtonEmailCode>
 
       <LinkMediumEmailReenviar>Reenviar Código</LinkMediumEmailReenviar>
     </Container>

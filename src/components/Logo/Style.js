@@ -9,5 +9,5 @@ export const Logo = styled.Image`
 
 export const ImageRecordInsertion = styled.Image`
   width: 100%;
-  height: 350px;
+  height: 320px;
 `

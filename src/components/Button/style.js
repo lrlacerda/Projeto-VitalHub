@@ -28,11 +28,18 @@ export const ButtonTitleGoogle = styled(ButtonTitle)`
 `;
 
 export const ButtonForgotPassword = styled(Button)`
-  margin-top: -150px;
+  
 `
 export const ButtonNewPassword = styled(Button)`
   margin-top: 30px;
 `
+export const ButtonEmailCode = styled(Button)`
+  margin-top: -150px;
+`
 export const ButtonRegister = styled(Button)`
+  margin-top: 30px;
+`
+export const ButtonRecordInsertion = styled(Button)`
+  width: 100%;
   margin-top: 30px;
 `

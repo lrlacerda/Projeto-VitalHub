@@ -7,4 +7,8 @@ export const Title = styled.Text`
   font-family: "MontserratAlternates_600SemiBold";
 `;
 
+export const TitleRecordInsertion = styled(Title)`
+  margin-top: 20px;
+`
+
 

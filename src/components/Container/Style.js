@@ -21,4 +21,9 @@ export const ContainerEmailCode = styled.View`
   padding: 10px;
 `;
 
+export const ContainerRecordInsertion = styled.ScrollView`
+   width: 90%;
+   
+`;
+
 
