@@ -28,7 +28,7 @@ export const RecordInsertion = () => {
             <TitleRecordInsertion>Lucas Lacerda</TitleRecordInsertion>
 
             <TextRecordPaciente>
-                36 anos lribeirolacerda@gmail.com
+                36 anos     lribeirolacerda@gmail.com
             </TextRecordPaciente>
 
             <ContainerRecordInsertion>

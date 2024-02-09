@@ -25,7 +25,7 @@ export const InputPassword = styled(Input)`
 
 export const InputRecordInsertion = styled(Input)`
     width: 100%;
-    height: 121px;
+    height: 130px;
 `;
 export const InputRecordInsertion2 = styled(Input)`
   width: 100%;

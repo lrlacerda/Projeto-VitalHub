@@ -13,6 +13,11 @@ export const ContainerIcon = styled.TouchableOpacity`
   margin-bottom: -40px;
 `;
 
+export const ContainerIconPatient = styled.View`
+  margin-left: 120px;
+  margin-top: 90px;
+`
+
 export const ContainerEmailCode = styled.View`
   width: 90%;
   flex-direction: row;
@@ -22,8 +27,36 @@ export const ContainerEmailCode = styled.View`
 `;
 
 export const ContainerRecordInsertion = styled.ScrollView`
-   width: 90%;
-   
+  width: 90%;
 `;
 
+export const ContainerText = styled.ScrollView`
+  width: 100%;
+  height: 130px;
+  background-color: #e6e6e6;
+  margin-top: 20px;
+  border-radius: 5px;
+`;
+export const ContainerText2 = styled(ContainerText)`
+  height: 70px;
+`;
 
+export const ContainerHeader = styled.View`
+  position: relative;
+  width: 100%;
+  height: 160px;
+  flex-direction: row;
+`;
+export const ContainerImageTextPatient = styled.View`
+  position: absolute;
+  flex-direction: row;
+`;
+
+export const ContainerTextPatient = styled.View`
+  margin-top: 90px;
+  margin-left: 10px;
+`;
+
+export const CalendarContainer = styled.View`
+  
+`

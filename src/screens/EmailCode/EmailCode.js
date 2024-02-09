@@ -12,7 +12,6 @@ import { Entypo } from "@expo/vector-icons";
 import { InputPassword } from "../../components/Input/Input";
 import {
   ButtonEmailCode,
-  ButtonForgotPassword,
   ButtonTitle,
 } from "../../components/Button/style";
 
