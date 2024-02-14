@@ -15,7 +15,7 @@ export const TextRecordPaciente = styled.Text`
   text-align: center;
   color: gray;
   margin-top: 1px;
-  margin-bottom: 10px;
+  margin-bottom: -60px;
 `;
 
 export const TextRecordPaciente2 = styled(TextRecordPaciente)`

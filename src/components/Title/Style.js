@@ -9,6 +9,12 @@ export const Title = styled.Text`
 
 export const TitleRecordInsertion = styled(Title)`
   margin-top: 20px;
+  text-align: center;
+`
+export const TitleRecordInsertion2 = styled(Title)`
+  margin-top: 26px;
+  text-align: center;
+  margin-bottom: 5px;
 `
 
 

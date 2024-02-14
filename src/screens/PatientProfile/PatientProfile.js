@@ -2,9 +2,10 @@ import {
     Container,
     ContainerInputs,
     ContainerRecordInsertion,
+    ContainerText3,
 } from "../../components/Container/Style";
 import { ImageRecordInsertion } from "../../components/Logo/Style";
-import { TitleRecordInsertion } from "../../components/Title/Style";
+import { TitleRecordInsertion2 } from "../../components/Title/Style";
 import {
     TextRecordInsertion,
     TextRecordPaciente,
@@ -17,9 +18,8 @@ import {
     ButtonRecordInsertion,
     ButtonTitle,
 } from "../../components/Button/style";
-import { LinkRecordInsertion } from "../../components/Links/Links";
 
-export const RecordInsertion = () => {
+export const PatientProfile = () => {
     return (
         <Container>
             <ContainerRecordInsertion>
@@ -27,11 +27,13 @@ export const RecordInsertion = () => {
                     source={require("../../assets/imagemPaciente.png")}
                 />
 
-                <TitleRecordInsertion>Richard Kosta</TitleRecordInsertion>
+                <ContainerText3>
+                    <TitleRecordInsertion2>Richard Kosta</TitleRecordInsertion2>
 
-                <TextRecordPaciente>
-                    36 anos richard.kosta@gmail.com
-                </TextRecordPaciente>
+                    <TextRecordPaciente>
+                        richard.kosta@gmail.com
+                    </TextRecordPaciente>
+                </ContainerText3>
 
                 <ContainerInputs>
                     <TextRecordInsertion>
@@ -52,8 +54,6 @@ export const RecordInsertion = () => {
                     <ButtonRecordInsertion>
                         <ButtonTitle>ENTRAR</ButtonTitle>
                     </ButtonRecordInsertion>
-
-                    <LinkRecordInsertion>Cancelar</LinkRecordInsertion>
                 </ContainerInputs>
             </ContainerRecordInsertion>
         </Container>
