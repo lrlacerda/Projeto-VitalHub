@@ -43,3 +43,15 @@ export const TextPatient2 = styled.Text`
     font-size: 18px;
     color: #FBFBFB;
 `
+export const TextPatient3 = styled.Text`
+    font-family: 'MontserratAlternates_600SemiBold';
+    font-size: 18px;
+    color: black;
+    margin-bottom: 5px;
+`
+export const TextHora = styled.Text`
+  color: #49B3BA;
+  font-family: "Quicksand_600SemiBold";
+  font-size: 14px;
+  margin-left: 6px;
+`

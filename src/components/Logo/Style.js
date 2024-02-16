@@ -25,3 +25,9 @@ export const ImagePatient = styled.Image`
   margin-left: 20px;
   border-radius: 5px;
 `
+export const ImageDoctor = styled.Image`
+  width: 85px;
+  height: 95px;
+  border-radius: 5px;
+  margin-left: 10px;
+`
