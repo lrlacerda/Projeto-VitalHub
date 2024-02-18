@@ -27,6 +27,7 @@ import { PatientRecordInsertion } from "./src/screens/PatientRecordInsertion/Pat
 import { PatientConsultations } from "./src/screens/PatientConsultations/PatientConsultations";
 import { PatientProfile } from "./src/screens/PatientProfile/PatientProfile";
 import { DoctorConsultations } from "./src/screens/DoctorConsultations/DoctorConsultations";
+import { PatientProfile2 } from "./src/screens/PatientProfile2/PatientProfile2";
 
 export default function App() {
   const [fontsLoaded, fontsError] = useFonts({
@@ -131,6 +132,14 @@ export default function App() {
           component={PatientProfile}
           //titulo da tela
           options={{ Title: "PatientProfile" }}
+        />
+        <Stack.Screen
+          //nome da tela
+          name="PatientProfile2"
+          //componente que sera chamado
+          component={PatientProfile2}
+          //titulo da tela
+          options={{ Title: "PatientProfile2" }}
         />
         <Stack.Screen
           //nome da tela

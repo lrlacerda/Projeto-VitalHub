@@ -28,7 +28,13 @@ export const TextRecordInsertion = styled.Text`
   font-family: "Quicksand_600SemiBold";
   align-self: flex-start;
   margin-top: 20px;
-`;;
+`;
+
+export const TextRecordInsertion2 = styled.Text`
+    font-size: 16px;
+    font-family: "Quicksand_600SemiBold";
+    align-self: flex-start;
+`;
 
 export const TextPatient = styled.Text`
     font-size: 16px;
@@ -55,3 +61,7 @@ export const TextHora = styled.Text`
   font-size: 14px;
   margin-left: 6px;
 `
+
+export const TextAgenda = styled(TextHora)`
+    color: #607ec5;
+`;

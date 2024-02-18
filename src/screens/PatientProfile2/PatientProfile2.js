@@ -22,7 +22,7 @@ import {
     ButtonTitle,
 } from "../../components/Button/style";
 
-export const PatientProfile = () => {
+export const PatientProfile2 = () => {
     return (
         <Container>
             <ContainerRecordInsertion>
@@ -30,13 +30,9 @@ export const PatientProfile = () => {
                     source={require("../../assets/imagemPaciente.png")}
                 />
 
-                <ContainerText3>
-                    <TitleRecordInsertion2>Richard Kosta</TitleRecordInsertion2>
+                <TitleRecordInsertion2>Richard Kosta</TitleRecordInsertion2>
 
-                    <TextRecordPaciente>
-                        richard.kosta@gmail.com
-                    </TextRecordPaciente>
-                </ContainerText3>
+                <TextRecordPaciente>richard.kosta@gmail.com</TextRecordPaciente>
 
                 <ContainerInputs>
                     <TextRecordInsertion>
@@ -64,6 +60,9 @@ export const PatientProfile = () => {
 
                     <ButtonRecordInsertion>
                         <ButtonTitle>SALVAR</ButtonTitle>
+                    </ButtonRecordInsertion>
+                    <ButtonRecordInsertion>
+                        <ButtonTitle>EDITAR</ButtonTitle>
                     </ButtonRecordInsertion>
                 </ContainerInputs>
             </ContainerRecordInsertion>
