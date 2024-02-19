@@ -66,11 +66,12 @@ const CalendarList = () => {
   );
 
   //define a data final como sendo o último dia do mês
-  const endingDate = new Date(
-    currentDate.getFullYear(),
-    currentDate.getMonth() + 1,
-    0
-  );
+  const endingDate = new Date(currentDate.getFullYear(), 11, 31);
+  // const endingDate = new Date(
+  //   currentDate.getFullYear(),
+  //   currentDate.getMonth() + 1,
+  //   0
+  // );
 
   //retorna o componente StyleCalendarStrip
   return (

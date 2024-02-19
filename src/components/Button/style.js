@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Button = styled.TouchableOpacity`
   width: 90%;
@@ -11,9 +11,36 @@ export const Button = styled.TouchableOpacity`
   margin-top: 15px;
 `;
 
-export const Button2 = styled(Button)`
+export const ButtonTabsStyle = styled.TouchableOpacity`
   width: 120px;
   height: 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+
+  ${(props) =>
+    props.clickButton
+      ? css`
+          background-color: #496bba;
+        `
+      : css`
+          background-color: transparent;
+          border: 2px solid #607ec5;
+        `}
+`;
+
+export const TextButton = styled.Text`
+  font-family: "MontserratAlternates_600SemiBold";
+  font-size: 14px;
+
+  ${(props) =>
+    props.clickButton
+      ? css`
+          color: #fbfbfb;
+        `
+      : css`
+          color: #607EC5;
+        `}
 `;
 
 export const Button3 = styled(Button)`

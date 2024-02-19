@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 //import linearGradiente
 import { LinearGradient } from "expo-linear-gradient";
+import symbolicateStackTrace from "react-native/Libraries/Core/Devtools/symbolicateStackTrace";
 
 export const Container = styled.SafeAreaView`
     flex: 1;
@@ -38,7 +39,6 @@ export const Container4 = styled.View`
     background-color: #dffdff;
     border-radius: 5px;
     margin-top: 10px;
-    elevation: 5px;
 `;
 
 export const Container5 = styled.View`
@@ -47,11 +47,22 @@ export const Container5 = styled.View`
 
 export const Container6 = styled.View`
     width: 100%;
-    height: 60px;
+    height: 70px;
     flex-direction: row;
-    justify-content: space-around;
-    align-self: center;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fefcfc;
 `;
+
+export const Container7 = styled.View`
+    flex-direction: row;
+    background-color: #ECF2FF;
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+`
 
 export const ContainerInputs = styled.View`
     width: 90%;
