@@ -1,6 +1,4 @@
-import { ButtonTabsStyle, TextButton } from "./style"
-
-
+import { ButtonTabsStyle, TextButton } from "./style";
 
 export const AbsListAppointment = ({
     textButton,
@@ -11,5 +9,8 @@ export const AbsListAppointment = ({
         <ButtonTabsStyle clickButton={clickButton} onPress={onPress}>
             <TextButton clickButton={clickButton}>{textButton}</TextButton>
         </ButtonTabsStyle>
-    )
-}
+    );
+};
+
+
+

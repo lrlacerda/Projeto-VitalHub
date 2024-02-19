@@ -1,9 +1,12 @@
+import { useState } from "react";
 import {
   Button2,
   Button3,
   Button4,
+  ButtonTabsStyle,
   ButtonTitle2,
   ButtonTitle3,
+  TextButton,
 } from "../../components/Button/style";
 import CalendarList from "../../components/CalendarStrip/CalendarList";
 import {
@@ -32,54 +35,87 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from '@expo/vector-icons';
 
 export const PatientConsultations = () => {
+
+  const [statusLista, setStatusLista] = useState("pendente");
+
   return (
-    <Container>
-      <ContainerHeader>
-        <ContainerImageTextPatient>
-          <ImagePatient source={require("../../assets/imagemPaciente.png")} />
+      <Container>
+          <ContainerHeader>
+              <ContainerImageTextPatient>
+                  <ImagePatient
+                      source={require("../../assets/imagemPaciente.png")}
+                  />
 
-          <ContainerTextPatient>
-            <TextPatient>Bem vindo</TextPatient>
-            <TextPatient2>Richard Kosta</TextPatient2>
-          </ContainerTextPatient>
+                  <ContainerTextPatient>
+                      <TextPatient>Bem vindo</TextPatient>
+                      <TextPatient2>Richard Kosta</TextPatient2>
+                  </ContainerTextPatient>
 
-          <ContainerIconPatient>
-            <MaterialCommunityIcons name="bell" size={30} color="#FFFFFF" />
-          </ContainerIconPatient>
-        </ContainerImageTextPatient>
-      </ContainerHeader>
+                  <ContainerIconPatient>
+                      <MaterialCommunityIcons
+                          name="bell"
+                          size={30}
+                          color="#FFFFFF"
+                      />
+                  </ContainerIconPatient>
+              </ContainerImageTextPatient>
+          </ContainerHeader>
 
-      <CalendarList/>
+          <CalendarList />
 
-      <Container2>
-        <Button2>
-          <ButtonTitle2>Agendadas</ButtonTitle2>
-        </Button2>
-        <Button3>
-          <ButtonTitle3>Realizadas</ButtonTitle3>
-        </Button3>
-        <Button3>
-          <ButtonTitle3>Canceladas</ButtonTitle3>
-        </Button3>
-      </Container2>
+          <Container2>
+              <ButtonTabsStyle
+                  textButton={"Pendente"}
+                  clickButton={statusLista === "Pendente"}
+                  onPress={() => {
+                      setStatusLista("Pendente");
+                  }}
+              >
+                  <TextButton>Agendadas</TextButton>
+              </ButtonTabsStyle>
 
-      <Container3>
-        <ImageDoctor source={require("../../assets/imgLucas.jpg")} />
-        <ContainerTextPatient2>
-          <TextPatient3>Lucas Lacerda</TextPatient3>
-          <TextPatient>38 anos . Cardiologista</TextPatient>
-          <Container5>
-            <Container4>
-              <MaterialCommunityIcons name="clock" size={18} color="#49B3BA" />
-              <TextHora>14:00</TextHora>
-            </Container4>
-            <LinkRecordInsertion2>Cancelar</LinkRecordInsertion2>
-          </Container5>
-        </ContainerTextPatient2>
-      </Container3>
-      <Button4>
-      <FontAwesome5 name="stethoscope" size={32} color="#FBFBFB" />
-      </Button4>
-    </Container>
+              <ButtonTabsStyle
+                  textButton={"Realizadas"}
+                  clickButton={statusLista === "Realizado"}
+                  onPress={() => {
+                      setStatusLista("Realizado");
+                  }}
+              >
+                  <TextButton>Realizadas</TextButton>
+              </ButtonTabsStyle>
+
+              <ButtonTabsStyle
+                  textButton={"Canceladas"}
+                  clickButton={statusLista === "Cancelado"}
+                  onPress={() => {
+                      setStatusLista("Cancelado");
+                  }}
+              >
+                  <TextButton>Canceladas</TextButton>
+              </ButtonTabsStyle>
+          </Container2>
+
+          <Container3>
+              <ImageDoctor source={require("../../assets/imgLucas.jpg")} />
+              <ContainerTextPatient2>
+                  <TextPatient3>Lucas Lacerda</TextPatient3>
+                  <TextPatient>38 anos . Cardiologista</TextPatient>
+                  <Container5>
+                      <Container4>
+                          <MaterialCommunityIcons
+                              name="clock"
+                              size={18}
+                              color="#49B3BA"
+                          />
+                          <TextHora>14:00</TextHora>
+                      </Container4>
+                      <LinkRecordInsertion2>Cancelar</LinkRecordInsertion2>
+                  </Container5>
+              </ContainerTextPatient2>
+          </Container3>
+          <Button4>
+              <FontAwesome5 name="stethoscope" size={32} color="#FBFBFB" />
+          </Button4>
+      </Container>
   );
 };
