@@ -35,10 +35,11 @@ export const Container4 = styled.View`
     justify-content: center;
     align-items: center;
     width: 110px;
-    height: 35px;
+    height: 30px;
     background-color: #dffdff;
     border-radius: 5px;
     margin-top: 10px;
+    
 `;
 
 export const Container5 = styled.View`
@@ -52,6 +53,8 @@ export const Container6 = styled.View`
     justify-content: space-evenly;
     align-items: center;
     background-color: #fefcfc;
+    position: absolute;
+    bottom: 0;
 `;
 
 export const Container7 = styled.View`

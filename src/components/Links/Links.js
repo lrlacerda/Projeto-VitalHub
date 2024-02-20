@@ -33,10 +33,4 @@ export const LinkRecordInsertion = styled(LinkMedium)`
   margin-bottom: 30px;
 `;
 
-export const LinkRecordInsertion2 = styled(LinkMedium)`
-  color: #C81D25;
-  margin-left: 60px;
-  margin-top: 20px;
-  font-size: 14px;
-  text-decoration: none;
-`
+

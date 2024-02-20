@@ -31,37 +31,44 @@ export const TextRecordInsertion = styled.Text`
 `;
 
 export const TextRecordInsertion2 = styled.Text`
-    font-size: 16px;
-    font-family: "Quicksand_600SemiBold";
-    align-self: flex-start;
+  font-size: 16px;
+  font-family: "Quicksand_600SemiBold";
+  align-self: flex-start;
 `;
 
 export const TextPatient = styled.Text`
-    font-size: 16px;
-    text-align: start;
-    font-family: "Quicksand_500Medium";
-    margin-bottom: 5px;
-    color: #6A696E;
-`
+  font-size: 16px;
+  text-align: start;
+  font-family: "Quicksand_500Medium";
+  margin-bottom: 5px;
+  color: #6a696e;
+`;
 
 export const TextPatient2 = styled.Text`
-    font-family: 'MontserratAlternates_600SemiBold';
-    font-size: 18px;
-    color: #FBFBFB;
-`
+  font-family: "MontserratAlternates_600SemiBold";
+  font-size: 18px;
+  color: #fbfbfb;
+`;
 export const TextPatient3 = styled.Text`
-    font-family: 'MontserratAlternates_600SemiBold';
-    font-size: 18px;
-    color: black;
-    margin-bottom: 5px;
-`
+  font-family: "MontserratAlternates_600SemiBold";
+  font-size: 18px;
+  color: black;
+  margin-bottom: 5px;
+`;
 export const TextHora = styled.Text`
-  color: #49B3BA;
+  color: #49b3ba;
   font-family: "Quicksand_600SemiBold";
   font-size: 14px;
   margin-left: 6px;
-`
+`;
 
 export const TextAgenda = styled(TextHora)`
-    color: #607ec5;
+  color: #607ec5;
+`;
+
+export const TextButtonCard = styled.Text`
+  color: ${(props) => props.situacao == "pendente" ? "#c81d25" : "#344f8f"} ;
+  font-size: 14px;
+  text-decoration: none;
+  font-family: "MontserratAlternates_500Medium";
 `;
