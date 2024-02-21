@@ -43,26 +43,20 @@ export const TextButton = styled.Text`
         `}
 `;
 export const ButtonTabsStyle2 = styled.TouchableOpacity`
-  width: 110px;
+  width: 100px;
   height: 50px;
-  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
- 
 
   ${(props) =>
     props.clickButton
       ? css`
-          
           border-top-color: #607ec5;
           border-top-width: 3px;
         `
       : css`
           background-color: transparent;
         `}
-
-
-  
 `;
 
 export const TextButton2 = styled.Text`
@@ -76,7 +70,6 @@ export const TextButton2 = styled.Text`
         `
       : css`
           color: #4e4b59;
-          
         `}
 `;
 
@@ -116,6 +109,12 @@ export const ButtonTitle3 = styled(ButtonTitle2)`
 `;
 
 export const ButtonGoogle = styled(Button)`
+  background-color: #fafafa;
+  border: 1px solid #496bba;
+  flex-direction: row;
+`;
+
+export const ButtonSecondary = styled(Button)`
   background-color: #fafafa;
   border: 1px solid #496bba;
   flex-direction: row;

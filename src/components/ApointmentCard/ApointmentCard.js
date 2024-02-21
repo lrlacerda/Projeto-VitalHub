@@ -31,10 +31,12 @@ export const ApointmentCard = ({
         <TextPatient>28 anos . Cardiologia</TextPatient>
         <Container5>
           <Container4 situacao={situacao}>
-            <MaterialCommunityIcons name="clock" size={18} color="#49B3BA" />
-            <TextHora situacao={situacao} color={"#49B3BA"}>
-              14:00
-            </TextHora>
+            <MaterialCommunityIcons
+              name="clock"
+              size={18}
+              color={situacao == "pendente" ? "#49b3ba" : "#8C8A97"}
+            />
+            <TextHora situacao={situacao}>14:00</TextHora>
           </Container4>
           {situacao == "cancelado" ? (
             <></>
@@ -44,7 +46,7 @@ export const ApointmentCard = ({
             </ButtonCard>
           ) : (
             <ButtonCard onPress={onPressAppointment}>
-              <TextButtonCard situacao={situacao}>Ver Prontuário</TextButtonCard>
+              <TextButtonCard situacao={situacao}>Prontuário</TextButtonCard>
             </ButtonCard>
           )}
         </Container5>

@@ -28,6 +28,7 @@ import { PatientConsultations } from "./src/screens/PatientConsultations/Patient
 import { PatientProfile } from "./src/screens/PatientProfile/PatientProfile";
 import { DoctorConsultations } from "./src/screens/DoctorConsultations/DoctorConsultations";
 import { PatientProfile2 } from "./src/screens/PatientProfile2/PatientProfile2";
+import CancelationModal from "./src/components/CancelationModal/CancelationModal";
 
 export default function App() {
   const [fontsLoaded, fontsError] = useFonts({
@@ -148,6 +149,14 @@ export default function App() {
           component={DoctorConsultations}
           //titulo da tela
           options={{ Title: "DoctorConsultations" }}
+        />
+        <Stack.Screen
+          //nome da tela
+          name="CancelationModal"
+          //componente que sera chamado
+          component={CancelationModal}
+          //titulo da tela
+          options={{ Title: "CancelationModal" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

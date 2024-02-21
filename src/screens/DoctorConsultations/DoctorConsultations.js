@@ -39,18 +39,22 @@ import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { ListComponent } from "../../components/List/List";
 import { ApointmentCard } from "../../components/ApointmentCard/ApointmentCard";
+import CancelationModal from "../../components/CancelationModal/CancelationModal";
 
 const Consultas = [
-  { id: 1, nome: "Lucas Lacerda", situação: "Pendente" },
-  { id: 2, nome: "Uiara Ambrosio", situação: "Cancelado" },
-  { id: 3, nome: "Silvia Ribeiro", situação: "Realizado" },
-  { id: 4, nome: "Tadeu LACERDA", situação: "Pendente" },
+  { id: 1, nome: "Lucas Lacerda", situacao: "pendente" },
+  { id: 2, nome: "Uiara Ambrosio", situacao: "cancelado" },
+  { id: 3, nome: "Silvia Ribeiro", situacao: "realizado" },
+  { id: 4, nome: "Tadeu LACERDA", situacao: "pendente" },
 ];
 
 export const DoctorConsultations = () => {
+  const [statusLista, setStatusLista] = useState("pendente");
+  const [activeIcon, setActiveIcon] = useState("agenda"); // Estado para armazenar o ícone ativo
 
-  const [statusLista, setStatusLista] = useState("Pendente");
-  const [activeIcon, setActiveIcon] = useState("Agenda"); // Estado para armazenar o ícone ativo
+  //states para os Modais
+  const [showModalCancel, setShowModalCancel] = useState(false);
+  const [showModalAppointment, setShowModalAppointment] = useState(false);
 
   return (
     <Container>
@@ -73,37 +77,37 @@ export const DoctorConsultations = () => {
 
       <Container2>
         <ButtonTabsStyle
-          textButton={"Pendente"}
-          clickButton={statusLista === "Pendente"}
+          textButton={"pendente"}
+          clickButton={statusLista === "pendente"}
           onPress={() => {
-            setStatusLista("Pendente");
+            setStatusLista("pendente");
           }}
         >
-          <TextButton clickButton={statusLista === "Pendente"}>
+          <TextButton clickButton={statusLista === "pendente"}>
             Agendadas
           </TextButton>
         </ButtonTabsStyle>
 
         <ButtonTabsStyle
-          textButton={"Realizadas"}
-          clickButton={statusLista === "Realizado"}
+          textButton={"realizado"}
+          clickButton={statusLista === "realizado"}
           onPress={() => {
-            setStatusLista("Realizado");
+            setStatusLista("realizado");
           }}
         >
-          <TextButton clickButton={statusLista === "Realizado"}>
+          <TextButton clickButton={statusLista === "realizado"}>
             Realizadas
           </TextButton>
         </ButtonTabsStyle>
 
         <ButtonTabsStyle
-          textButton={"Canceladas"}
-          clickButton={statusLista === "Cancelado"}
+          textButton={"cancelado"}
+          clickButton={statusLista === "cancelado"}
           onPress={() => {
-            setStatusLista("Cancelado");
+            setStatusLista("cancelado");
           }}
         >
-          <TextButton clickButton={statusLista === "Cancelado"}>
+          <TextButton clickButton={statusLista === "cancelado"}>
             Canceladas
           </TextButton>
         </ButtonTabsStyle>
@@ -112,12 +116,20 @@ export const DoctorConsultations = () => {
       <ListComponent
         data={Consultas}
         keyExtractor={(item) => item.id}
-        renderItem={({item}) =>
-          statusLista == item.situação && (
-            <ApointmentCard situacao={item.situacao} 
+        renderItem={({ item }) =>
+          statusLista == item.situacao && (
+            <ApointmentCard
+              situacao={item.situacao}
+              onPressCancel={() => setShowModalCancel(true)}
+              onPressAppointment={() => setShowModalAppointment(true)}
             />
           )
         }
+      />
+
+      <CancelationModal
+      visible={showModalCancel}
+      setShowModalCancel={setShowModalCancel}
       />
 
       <Container6>

@@ -56,7 +56,7 @@ export const TextPatient3 = styled.Text`
   margin-bottom: 5px;
 `;
 export const TextHora = styled.Text`
-  color: #49b3ba;
+  color: ${({ situacao }) => (situacao === "pendente" ? "#49b3ba" : "#8C8A97")};
   font-family: "Quicksand_600SemiBold";
   font-size: 14px;
   margin-left: 6px;
@@ -71,4 +71,5 @@ export const TextButtonCard = styled.Text`
   font-size: 14px;
   text-decoration: none;
   font-family: "MontserratAlternates_500Medium";
+  margin-left: -10px;
 `;
