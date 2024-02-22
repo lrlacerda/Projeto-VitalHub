@@ -40,6 +40,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { ListComponent } from "../../components/List/List";
 import { ApointmentCard } from "../../components/ApointmentCard/ApointmentCard";
 import CancelationModal from "../../components/CancelationModal/CancelationModal";
+import InsertMedicalRecordModal from "../../components/InsertMedicalRecordModal/InsertMedicalRecordModal";
 
 const Consultas = [
   { id: 1, nome: "Lucas Lacerda", situacao: "pendente" },
@@ -128,8 +129,13 @@ export const DoctorConsultations = () => {
       />
 
       <CancelationModal
-      visible={showModalCancel}
-      setShowModalCancel={setShowModalCancel}
+        visible={showModalCancel}
+        setShowModalCancel={setShowModalCancel}
+      />
+
+      <InsertMedicalRecordModal
+        visible={showModalAppointment}
+        setShowModalAppointment={setShowModalAppointment}
       />
 
       <Container6>

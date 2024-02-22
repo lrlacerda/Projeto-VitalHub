@@ -1,121 +1,128 @@
 import { useState } from "react";
-import {
-  Button2,
-  Button3,
-  Button4,
-  ButtonTabsStyle,
-  ButtonTitle2,
-  ButtonTitle3,
-  TextButton,
-} from "../../components/Button/style";
-import CalendarList from "../../components/CalendarStrip/CalendarList";
+
 import {
   Container,
   Container2,
-  Container3,
-  Container4,
-  Container5,
   ContainerHeader,
-  ContainerIconPatient,
+  ContainerIconPatient2,
   ContainerImageTextPatient,
   ContainerTextPatient,
-  ContainerTextPatient2,
 } from "../../components/Container/Style";
-import { LinkRecordInsertion2 } from "../../components/Links/Links";
-import { ImageDoctor, ImagePatient } from "../../components/Logo/Style";
+import { TextPatient, TextPatient2 } from "../../components/Text/Text";
+import CalendarList from "../../components/CalendarStrip/CalendarList";
 import {
-  TextHora,
-  TextPatient,
-  TextPatient2,
-  TextPatient3,
-} from "../../components/Text/Text";
+  Button4,
+  ButtonTabsStyle,
+  TextButton,
+} from "../../components/Button/style";
+import { ListComponent } from "../../components/List/List";
+import CancelationModal from "../../components/CancelationModal/CancelationModal";
+import InsertMedicalRecordModal from "../../components/InsertMedicalRecordModal/InsertMedicalRecordModal";
+import { ImagePatient } from "../../components/Logo/Style";
+import { ApointmentCardDoctor } from "../../components/ApointmentCard/ApointmentCardDoctor";
 
 //Icon
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome5 } from "@expo/vector-icons";
+
+const Consultas = [
+  { id: 1, nome: "Lucas Lacerda", situacao: "pendente" },
+  { id: 2, nome: "Uiara Ambrosio", situacao: "cancelado" },
+  { id: 3, nome: "Silvia Ribeiro", situacao: "realizado" },
+  { id: 4, nome: "Tadeu LACERDA", situacao: "pendente" },
+];
 
 export const PatientConsultations = () => {
-
   const [statusLista, setStatusLista] = useState("pendente");
 
+  //states para os Modais
+  const [showModalCancel, setShowModalCancel] = useState(false);
+  const [showModalAppointment, setShowModalAppointment] = useState(false);
+
   return (
-      <Container>
-          <ContainerHeader>
-              <ContainerImageTextPatient>
-                  <ImagePatient
-                      source={require("../../assets/imagemPaciente.png")}
-                  />
+    <Container>
+      <ContainerHeader>
+        <ContainerImageTextPatient>
+          <ImagePatient source={require("../../assets/imagemPaciente.png")} />
 
-                  <ContainerTextPatient>
-                      <TextPatient>Bem vindo</TextPatient>
-                      <TextPatient2>Richard Kosta</TextPatient2>
-                  </ContainerTextPatient>
+          <ContainerTextPatient>
+            <TextPatient>Bem vindo</TextPatient>
+            <TextPatient2>Richard Kosta</TextPatient2>
+          </ContainerTextPatient>
 
-                  <ContainerIconPatient>
-                      <MaterialCommunityIcons
-                          name="bell"
-                          size={30}
-                          color="#FFFFFF"
-                      />
-                  </ContainerIconPatient>
-              </ContainerImageTextPatient>
-          </ContainerHeader>
+          <ContainerIconPatient2>
+            <MaterialCommunityIcons name="bell" size={30} color="#FFFFFF" />
+          </ContainerIconPatient2>
+        </ContainerImageTextPatient>
+      </ContainerHeader>
 
-          <CalendarList />
+      <CalendarList />
 
-          <Container2>
-              <ButtonTabsStyle
-                  textButton={"Pendente"}
-                  clickButton={statusLista === "Pendente"}
-                  onPress={() => {
-                      setStatusLista("Pendente");
-                  }}
-              >
-                  <TextButton>Agendadas</TextButton>
-              </ButtonTabsStyle>
+      <Container2>
+        <ButtonTabsStyle
+          textButton={"pendente"}
+          clickButton={statusLista === "pendente"}
+          onPress={() => {
+            setStatusLista("pendente");
+          }}
+        >
+          <TextButton clickButton={statusLista === "pendente"}>
+            Agendadas
+          </TextButton>
+        </ButtonTabsStyle>
 
-              <ButtonTabsStyle
-                  textButton={"Realizadas"}
-                  clickButton={statusLista === "Realizado"}
-                  onPress={() => {
-                      setStatusLista("Realizado");
-                  }}
-              >
-                  <TextButton>Realizadas</TextButton>
-              </ButtonTabsStyle>
+        <ButtonTabsStyle
+          textButton={"realizado"}
+          clickButton={statusLista === "realizado"}
+          onPress={() => {
+            setStatusLista("realizado");
+          }}
+        >
+          <TextButton clickButton={statusLista === "realizado"}>
+            Realizadas
+          </TextButton>
+        </ButtonTabsStyle>
 
-              <ButtonTabsStyle
-                  textButton={"Canceladas"}
-                  clickButton={statusLista === "Cancelado"}
-                  onPress={() => {
-                      setStatusLista("Cancelado");
-                  }}
-              >
-                  <TextButton>Canceladas</TextButton>
-              </ButtonTabsStyle>
-          </Container2>
+        <ButtonTabsStyle
+          textButton={"cancelado"}
+          clickButton={statusLista === "cancelado"}
+          onPress={() => {
+            setStatusLista("cancelado");
+          }}
+        >
+          <TextButton clickButton={statusLista === "cancelado"}>
+            Canceladas
+          </TextButton>
+        </ButtonTabsStyle>
+      </Container2>
 
-          <Container3>
-              <ImageDoctor source={require("../../assets/imgLucas.jpg")} />
-              <ContainerTextPatient2>
-                  <TextPatient3>Lucas Lacerda</TextPatient3>
-                  <TextPatient>38 anos . Cardiologista</TextPatient>
-                  <Container5>
-                      <Container4>
-                          <MaterialCommunityIcons
-                              name="clock"
-                              size={18}
-                              color="#49B3BA"
-                          />
-                          <TextHora>14:00</TextHora>
-                      </Container4>
-                      <LinkRecordInsertion2>Cancelar</LinkRecordInsertion2>
-                  </Container5>
-              </ContainerTextPatient2>
-          </Container3>
-          <Button4>
-              <FontAwesome5 name="stethoscope" size={32} color="#FBFBFB" />
-          </Button4>
-      </Container>
+      <ListComponent
+        data={Consultas}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) =>
+          statusLista == item.situacao && (
+            <ApointmentCardDoctor
+              situacao={item.situacao}
+              onPressCancel={() => setShowModalCancel(true)}
+              onPressAppointment={() => setShowModalAppointment(true)}
+            />
+          )
+        }
+      />
+
+      <CancelationModal
+        visible={showModalCancel}
+        setShowModalCancel={setShowModalCancel}
+      />
+
+      <InsertMedicalRecordModal
+        visible={showModalAppointment}
+        setShowModalAppointment={setShowModalAppointment}
+      />
+
+      <Button4>
+        <FontAwesome5 name="stethoscope" size={32} color="#FBFBFB" />
+      </Button4>
+    </Container>
   );
 };

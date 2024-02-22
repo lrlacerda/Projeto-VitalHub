@@ -49,10 +49,7 @@ export const Navegacao = ({ navigation }) => {
                 title="DoctorConsultations"
                 onPress={() => navigation.navigate("DoctorConsultations")}
             />
-            <Button
-                title="CancelationModal"
-                onPress={() => navigation.navigate("CancelationModal")}
-            />
+           
         </View>
     );
 };

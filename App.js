@@ -150,14 +150,7 @@ export default function App() {
           //titulo da tela
           options={{ Title: "DoctorConsultations" }}
         />
-        <Stack.Screen
-          //nome da tela
-          name="CancelationModal"
-          //componente que sera chamado
-          component={CancelationModal}
-          //titulo da tela
-          options={{ Title: "CancelationModal" }}
-        />
+  
       </Stack.Navigator>
     </NavigationContainer>
   );

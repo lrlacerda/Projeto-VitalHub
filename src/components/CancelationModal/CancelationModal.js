@@ -1,33 +1,32 @@
 import { Modal } from "react-native";
 import { Title } from "../Title/Style";
-import { ButtonRegister, ButtonTitle } from "../Button/style";
+import { ButtonTitle } from "../Button/style";
 import { ContentAccount } from "../ContentAccount/ContentAccount";
 import { LinkAccount } from "../Links/Links";
-import { Textbasic } from "../Text/Text";
+import { ButtonModal, ModalContent, ModalText, PatientModal } from "./style";
 
-
-const CancelationModal = ({
-    visible, 
-    setShowModalCancel, 
-    ...rest
-}) => {
+const CancelationModal = ({ visible, setShowModalCancel, ...rest }) => {
   return (
     <Modal {...rest} visible={visible} transparent={true} animationType="fade">
-        
-      <Title>Cancelar Consulta</Title>
+      <PatientModal>
+        {/* Content */}
+        <ModalContent>
+          <Title>Cancelar Consulta</Title>
 
-      <Textbasic>
-        Ao cancelar essa consulta, abrirá uma possível disponibilidade no seu
-        horário, deseja mesmo cancelar essa consulta?
-      </Textbasic>
+          <ModalText>
+            Ao cancelar essa consulta, abrirá uma possível disponibilidade no
+            seu horário, deseja mesmo cancelar essa consulta?
+          </ModalText>
 
-      <ButtonRegister onPress={() => setShowModalCancel(false)}>
-        <ButtonTitle>Cancelar</ButtonTitle>
-      </ButtonRegister>
+          <ButtonModal onPress={() => setShowModalCancel(false)}>
+            <ButtonTitle>CONFIRMAR</ButtonTitle>
+          </ButtonModal>
 
-      <ContentAccount>
-        <LinkAccount>Cancelar</LinkAccount>
-      </ContentAccount>
+          <ContentAccount>
+            <LinkAccount>Cancelar</LinkAccount>
+          </ContentAccount>
+        </ModalContent>
+      </PatientModal>
     </Modal>
   );
 };

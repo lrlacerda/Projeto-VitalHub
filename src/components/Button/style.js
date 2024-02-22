@@ -87,8 +87,8 @@ export const Button4 = styled.TouchableOpacity`
   border-radius: 5px;
   justify-content: center;
   align-items: center;
-  margin-top: 145px;
   margin-left: 290px;
+  margin-bottom: 15px;
   elevation: 5px;
 `;
 
