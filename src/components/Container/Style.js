@@ -35,7 +35,8 @@ export const Container4 = styled.View`
   align-items: center;
   width: 110px;
   height: 30px;
-  background-color: ${({ situacao }) => (situacao === "pendente" ? "#dffdff" : "#F1F0F5")};
+  background-color: ${({ situacao }) =>
+    situacao === "pendente" ? "#dffdff" : "#F1F0F5"};
   /* background-color: #dffdff; */
   border-radius: 5px;
   margin-top: 10px;
@@ -47,7 +48,7 @@ export const Container5 = styled.View`
 
 export const Container6 = styled.View`
   width: 100%;
-  height: 70px;
+  height: 60px;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
@@ -64,6 +65,10 @@ export const Container7 = styled.View`
   border-radius: 20px;
   justify-content: center;
   align-items: center;
+`;
+
+export const Container8 = styled(Container6)`
+  justify-content: space-around;
 `;
 
 export const ContainerInputs = styled.View`

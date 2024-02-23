@@ -3,6 +3,8 @@ import { useState } from "react";
 import {
   Container,
   Container2,
+  Container6,
+  Container8,
   ContainerHeader,
   ContainerIconPatient2,
   ContainerImageTextPatient,
@@ -13,7 +15,9 @@ import CalendarList from "../../components/CalendarStrip/CalendarList";
 import {
   Button4,
   ButtonTabsStyle,
+  ButtonTabsStyle2,
   TextButton,
+  TextButton2,
 } from "../../components/Button/style";
 import { ListComponent } from "../../components/List/List";
 import CancelationModal from "../../components/CancelationModal/CancelationModal";
@@ -24,6 +28,9 @@ import { ApointmentCardDoctor } from "../../components/ApointmentCard/Apointment
 //Icon
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome6 } from "@expo/vector-icons";
+import ScheduleConsultationModal from "../../components/ScheduleConsultationModal/ScheduleConsultationModal";
 
 const Consultas = [
   { id: 1, nome: "Lucas Lacerda", situacao: "pendente" },
@@ -38,6 +45,9 @@ export const PatientConsultations = () => {
   //states para os Modais
   const [showModalCancel, setShowModalCancel] = useState(false);
   const [showModalAppointment, setShowModalAppointment] = useState(false);
+  const [showScheduleModal, setShowScheduleModal] = useState(false);
+
+  const [activeIcon, setActiveIcon] = useState("agenda"); // Estado para armazenar o ícone ativo
 
   return (
     <Container>
@@ -120,9 +130,53 @@ export const PatientConsultations = () => {
         setShowModalAppointment={setShowModalAppointment}
       />
 
-      <Button4>
+      <Button4 onPress={() => setShowScheduleModal(true)}>
         <FontAwesome5 name="stethoscope" size={32} color="#FBFBFB" />
       </Button4>
+
+      <ScheduleConsultationModal
+        visible={showScheduleModal}
+        setScheduleConsultation={setShowScheduleModal}
+      />
+
+      <Container8>
+        <ButtonTabsStyle2
+          textButton={"Agenda"}
+          clickButton={statusLista === "Agenda"}
+          onPress={() => {
+            setStatusLista("Agenda");
+            setActiveIcon("Agenda");
+          }}
+        >
+          <MaterialCommunityIcons
+            name="notebook"
+            size={24}
+            color={activeIcon === "Agenda" ? "#607ec5" : "#4E4B59"} // Cor condicional
+          />
+
+          <TextButton2 clickButton={statusLista === "Agenda"}>
+            Agenda
+          </TextButton2>
+        </ButtonTabsStyle2>
+
+        <ButtonTabsStyle2
+          textButton={"Perfil"}
+          clickButton={statusLista === "Perfil"}
+          onPress={() => {
+            setStatusLista("Perfil");
+            setActiveIcon("Perfil");
+          }}
+        >
+          <Ionicons
+            name="person-circle-outline"
+            size={30}
+            color={activeIcon === "Perfil" ? "#607ec5" : "#4E4B59"}
+          />
+          <TextButton2 clickButton={statusLista === "Perfil"}>
+            Perfil
+          </TextButton2>
+        </ButtonTabsStyle2>
+      </Container8>
     </Container>
   );
 };

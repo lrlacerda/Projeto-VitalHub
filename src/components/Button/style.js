@@ -82,13 +82,13 @@ export const Button3 = styled(Button)`
 
 export const Button4 = styled.TouchableOpacity`
   background-color: #49b3ba;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 5px;
   justify-content: center;
   align-items: center;
   margin-left: 290px;
-  margin-bottom: 15px;
+  margin-bottom: 65px;
   elevation: 5px;
 `;
 
