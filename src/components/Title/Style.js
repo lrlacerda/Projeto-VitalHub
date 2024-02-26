@@ -16,5 +16,8 @@ export const TitleRecordInsertion2 = styled(Title)`
   text-align: center;
   margin-bottom: 5px;
 `
+export const TitleSelectDoctor = styled(Title)`
+  margin-bottom: 40px;
+`
 
 

@@ -73,3 +73,9 @@ export const TextButtonCard = styled.Text`
   font-family: "MontserratAlternates_500Medium";
   margin-left: -10px;
 `;
+
+export const TextIcon = styled.Text`
+  color: #F9A620;
+  font-family: "Quicksand_600SemiBold";
+  font-size: 14px;
+`

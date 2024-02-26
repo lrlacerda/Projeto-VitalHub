@@ -163,5 +163,23 @@ export const ContainerTextPatient = styled.View`
 `;
 
 export const ContainerTextPatient2 = styled.View`
+  flex-direction: row;
   margin-left: 10px;
 `;
+
+export const ContainerSelectDoctor = styled(Container)`
+  padding-top: 80px;
+`;
+export const ContainerSelectClinicIcon = styled.View`
+ align-items: flex-end;
+ justify-content: center;
+ margin-left: 70px;
+`;
+export const ContainerIcon2 = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+export const ContainerTextPatient3 = styled.View`
+  padding: 5px;
+`

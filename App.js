@@ -29,6 +29,8 @@ import { PatientProfile } from "./src/screens/PatientProfile/PatientProfile";
 import { DoctorConsultations } from "./src/screens/DoctorConsultations/DoctorConsultations";
 import { PatientProfile2 } from "./src/screens/PatientProfile2/PatientProfile2";
 import CancelationModal from "./src/components/CancelationModal/CancelationModal";
+import { SelectDoctor } from "./src/screens/SelectDoctor/SelectDoctor";
+import { SelectClinic } from "./src/screens/SelectClinic/SelectClinic";
 
 export default function App() {
   const [fontsLoaded, fontsError] = useFonts({
@@ -149,6 +151,22 @@ export default function App() {
           component={DoctorConsultations}
           //titulo da tela
           options={{ Title: "DoctorConsultations" }}
+        />
+        <Stack.Screen
+          //nome da tela
+          name="SelectDoctor"
+          //componente que sera chamado
+          component={SelectDoctor}
+          //titulo da tela
+          options={{ Title: "SelectDoctor" }}
+        />
+        <Stack.Screen
+          //nome da tela
+          name="SelectClinic"
+          //componente que sera chamado
+          component={SelectClinic}
+          //titulo da tela
+          options={{ Title: "SelectClinic" }}
         />
   
       </Stack.Navigator>
