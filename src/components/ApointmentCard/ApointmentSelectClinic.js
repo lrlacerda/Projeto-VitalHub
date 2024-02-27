@@ -3,9 +3,9 @@ import {
   Container4,
   ContainerIcon2,
   ContainerSelectClinicIcon,
-  ContainerSelectClinicText,
   ContainerTextPatient2,
   ContainerTextPatient3,
+  ContainerTextPatient5,
 } from "../Container/Style";
 import { TextHora, TextIcon, TextPatient, TextPatient3 } from "../Text/Text";
 
@@ -18,6 +18,7 @@ export const ApointmentSelectClinic = ({
   onPressCancel,
   onPressAppointment,
 }) => {
+
   return (
     <Container3
       style={{
@@ -26,10 +27,10 @@ export const ApointmentSelectClinic = ({
         borderRadius: 5,
       }}
     >
-      <ContainerTextPatient2>
+      <ContainerTextPatient5>
 
         <ContainerTextPatient3>
-          <TextPatient3>Clínica Natureh</TextPatient3>
+            <TextPatient3>Clínica Natureh</TextPatient3>
           <TextPatient>São Paulo, SP</TextPatient>
         </ContainerTextPatient3>
 
@@ -47,7 +48,7 @@ export const ApointmentSelectClinic = ({
 
         </ContainerSelectClinicIcon>
 
-      </ContainerTextPatient2>
+      </ContainerTextPatient5>
 
     </Container3>
   );

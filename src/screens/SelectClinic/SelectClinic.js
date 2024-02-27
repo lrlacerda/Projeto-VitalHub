@@ -19,7 +19,7 @@ export const SelectClinic = () => {
       <TitleSelectDoctor>Selecionar clínica</TitleSelectDoctor>
       <ListComponent
         data={Clinic}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item, index }) => (
           <ApointmentSelectClinic isFirst={index === 0} />
         )} // Verifica se é o primeiro item da lista

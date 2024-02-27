@@ -163,7 +163,6 @@ export const ContainerTextPatient = styled.View`
 `;
 
 export const ContainerTextPatient2 = styled.View`
-  flex-direction: row;
   margin-left: 10px;
 `;
 
@@ -171,9 +170,9 @@ export const ContainerSelectDoctor = styled(Container)`
   padding-top: 80px;
 `;
 export const ContainerSelectClinicIcon = styled.View`
- align-items: flex-end;
- justify-content: center;
- margin-left: 70px;
+  align-items: flex-end;
+  justify-content: center;
+  margin-left: 70px;
 `;
 export const ContainerIcon2 = styled.View`
   flex-direction: row;
@@ -182,4 +181,17 @@ export const ContainerIcon2 = styled.View`
 `;
 export const ContainerTextPatient3 = styled.View`
   padding: 5px;
+`;
+export const ContainerTextPatient4 = styled.View`
+  margin-left: 10px;
+  gap: 10px;
+`;
+export const ContainerTextPatient5 = styled.View`
+  flex-direction: row;
+  margin-left: 10px;
+  gap: 10px;
+`;
+
+export const ContainerSelectDate = styled(Container)`
+   padding-top: 80px;
 `

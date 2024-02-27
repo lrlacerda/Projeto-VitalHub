@@ -31,6 +31,7 @@ import { PatientProfile2 } from "./src/screens/PatientProfile2/PatientProfile2";
 import CancelationModal from "./src/components/CancelationModal/CancelationModal";
 import { SelectDoctor } from "./src/screens/SelectDoctor/SelectDoctor";
 import { SelectClinic } from "./src/screens/SelectClinic/SelectClinic";
+import { SelectDate } from "./src/screens/SelectDate/SelectDate";
 
 export default function App() {
   const [fontsLoaded, fontsError] = useFonts({
@@ -167,6 +168,14 @@ export default function App() {
           component={SelectClinic}
           //titulo da tela
           options={{ Title: "SelectClinic" }}
+        />
+        <Stack.Screen
+          //nome da tela
+          name="SelectDate"
+          //componente que sera chamado
+          component={SelectDate}
+          //titulo da tela
+          options={{ Title: "SelectDate" }}
         />
   
       </Stack.Navigator>
