@@ -8,22 +8,34 @@ import { TitleSelectDoctor } from "../../components/Title/Style";
 import { ListComponent } from "../../components/List/List";
 
 export const SelectDoctor = () => {
-    
-  const [onPressAppointment, setOnPressAppointment] = useState(false)
+  const [selectedDoctorId, setSelectedDoctorId] = useState(null);
 
-  const Doctor = [
-    { id: 1, nome: "Lucas Lacerda", situacao: "pendente" },
-    { id: 2, nome: "Uiara Ambrosio", situacao: "cancelado" },
-    { id: 3, nome: "Silvia Ribeiro", situacao: "realizado" },
+  // Função para atualizar o estado do item selecionado
+  const handleSelectDoctor = (doctorId) => {
+    setSelectedDoctorId(doctorId);
+  };
+
+  // Lista de médicos
+  const doctors = [
+    { id: 1, name: 'Dr. Dra Alessandra', specialty: 'Dermatologista, Esteticista', image: require('../../assets/imagemDoctor1.png')},
+    { id: 2, name: 'Dr. Lucas', specialty: 'Cardiologista', image: require('../../assets/imgLucas.jpg')},
+    { id: 3, name: 'Dra. Maria', specialty: 'Pediatra', image: require('../../assets/imgdoctor2.png')},
+    // Adicione mais médicos conforme necessário
   ];
 
   return (
     <ContainerSelectDoctor>
       <TitleSelectDoctor>Selecionar médico</TitleSelectDoctor>
       <ListComponent
-        data={Doctor}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item, index }) => <ApointmentSelectDoctor  isFirst={index === 0}/>} // Verifica se é o primeiro item da lista
+        data={doctors}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <ApointmentSelectDoctor
+            doctor={item}
+            selectedDoctorId={selectedDoctorId}
+            onSelectDoctor={handleSelectDoctor}
+          />
+        )}
       />
       <ButtonRegister>
         <ButtonTitle>CONTINUAR</ButtonTitle>

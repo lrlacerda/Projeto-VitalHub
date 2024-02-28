@@ -1,9 +1,9 @@
+import { useState } from "react";
 import {
   Container3,
-  Container4,
+  Container9,
   ContainerIcon2,
   ContainerSelectClinicIcon,
-  ContainerTextPatient2,
   ContainerTextPatient3,
   ContainerTextPatient5,
 } from "../Container/Style";
@@ -12,44 +12,50 @@ import { TextHora, TextIcon, TextPatient, TextPatient3 } from "../Text/Text";
 //icon
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native";
 
 export const ApointmentSelectClinic = ({
-  isFirst,
+  clinic,
+  isSelected,
+  onPressClinic,
   onPressCancel,
   onPressAppointment,
 }) => {
 
+
   return (
-    <Container3
-      style={{
-        borderColor: isFirst ? "#496BBA" : "transparent",
-        borderWidth: 2,
-        borderRadius: 5,
-      }}
-    >
-      <ContainerTextPatient5>
+    <TouchableOpacity onPress={onPressClinic}>
+      {/* Utilize TouchableOpacity */}
+      <Container3
+        style={{
+          borderColor: isSelected ? "#496BBA" : "transparent", // Altera a cor da borda se o item estiver selecionado
+          borderWidth: 2,
+          borderRadius: 5,
+        }}
+      >
+        <ContainerTextPatient5>
+          <ContainerTextPatient3>
+            <TextPatient3>{clinic.name}</TextPatient3>
+            <TextPatient>{clinic.location}</TextPatient>
+          </ContainerTextPatient3>
 
-        <ContainerTextPatient3>
-            <TextPatient3>Clínica Natureh</TextPatient3>
-          <TextPatient>São Paulo, SP</TextPatient>
-        </ContainerTextPatient3>
+          <ContainerSelectClinicIcon>
+            <ContainerIcon2>
+              <AntDesign name="star" size={24} color="#F9A620" />
+              <TextIcon>4,5</TextIcon>
+            </ContainerIcon2>
 
-        <ContainerSelectClinicIcon>
-
-          <ContainerIcon2>
-            <AntDesign name="star" size={24} color="#F9A620" />
-            <TextIcon>4,5</TextIcon>
-          </ContainerIcon2>
-
-          <Container4>
-            <MaterialCommunityIcons name="calendar" size={24} color="#49B3BA" />
-            <TextHora>Seg-Sex</TextHora>
-          </Container4>
-
-        </ContainerSelectClinicIcon>
-
-      </ContainerTextPatient5>
-
-    </Container3>
+            <Container9>
+              <MaterialCommunityIcons
+                name="calendar"
+                size={24}
+                color="#49B3BA"
+              />
+              <TextHora>Seg-Sex</TextHora>
+            </Container9>
+          </ContainerSelectClinicIcon>
+        </ContainerTextPatient5>
+      </Container3>
+    </TouchableOpacity>
   );
 };
