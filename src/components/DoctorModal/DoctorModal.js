@@ -2,8 +2,6 @@ import { Modal } from "react-native";
 import { PatientModal } from "../ScheduleConsultationModal/Style";
 import { ImagePatientModal, ModalContent2 } from "../InsertMedicalRecordModal/style";
 import { ButtonModalDoctor, ButtonTitleDoctor, ContainerDoctorText, TextDoctor, TextDoctor2 } from "./style";
-import { ButtonModal } from "../CancelationModal/style";
-import { ButtonTitle } from "../Button/style";
 import { ContentAccount } from "../ContentAccount/ContentAccount";
 import { LinkAccount } from "../Links/Links";
 

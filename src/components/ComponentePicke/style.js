@@ -12,3 +12,11 @@ export const InputPicker = styled.View`
   font-family: "MontserratAlternates_600SemiBold";
   justify-content: center;
 `;
+
+export const SelectedHourText = styled.Text`
+  margin-top: 10px;
+  color: red;
+  font-size: 8px;
+  text-overflow: clip;
+  font-family: "MontserratAlternates_600SemiBold";
+`;

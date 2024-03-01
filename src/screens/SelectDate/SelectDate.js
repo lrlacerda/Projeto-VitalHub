@@ -22,10 +22,15 @@ import {
 } from "@expo-google-fonts/quicksand";
 import { useState } from "react";
 import ComponenteSelecaoDeHorario from "../../components/ComponentePicke/ComponentePicke";
+import { ConfirmAppointment } from "../../components/ConfirmAppointment/ConfirmAppointment";
 
-export const SelectDate = () => {
 
-  const [selected, setSelected] = useState('');
+export const SelectDate = ({
+
+}) => {
+  const [selected, setSelected] = useState("");
+  const [showModalConfirm, setShowModalConfirm] = useState(false);
+
 
   const [fontsLoaded, fontsError] = useFonts({
     MontserratAlternates_600SemiBold,
@@ -38,23 +43,64 @@ export const SelectDate = () => {
     return null;
   }
 
-  LocaleConfig.locales['pt-br'] = {
+  LocaleConfig.locales["pt-br"] = {
     monthNames: [
-      "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro".split(
-        "_"
-      ),
+      "Janeiro",
+      "Fevereiro",
+      "Março",
+      "Abril",
+      "Maio",
+      "Junho",
+      "Julho",
+      "Agosto",
+      "Setembro",
+      "Outubro",
+      "Novembro",
+      "Dezembro".split("_"),
     ],
     monthNames: [
-      "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro".split(
-        "_"
-      ),
+      "Janeiro",
+      "Fevereiro",
+      "Março",
+      "Abril",
+      "Maio",
+      "Junho",
+      "Julho",
+      "Agosto",
+      "Setembro",
+      "Outubro",
+      "Novembro",
+      "Dezembro".split("_"),
     ],
-    monthNamesShort: ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez".split("_")],
-    dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+    monthNamesShort: [
+      "jan",
+      "fev",
+      "mar",
+      "abr",
+      "mai",
+      "jun",
+      "jul",
+      "ago",
+      "set",
+      "out",
+      "nov",
+      "dez".split("_"),
+    ],
+    dayNames: [
+      "Dimanche",
+      "Lundi",
+      "Mardi",
+      "Mercredi",
+      "Jeudi",
+      "Vendredi",
+      "Samedi",
+    ],
     dayNamesShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb".split("_")],
   };
-  
-  LocaleConfig.defaultLocale = 'pt-br';
+
+  LocaleConfig.defaultLocale = "pt-br";
+
+
 
   return (
     <ContainerSelectDate>
@@ -63,33 +109,35 @@ export const SelectDate = () => {
         <Calendar
           onDayPress={(day) => console.log("Dia selecionado:", day)}
           hideArrows={true}
+          // markedDates={markedDates}
+          // onDayPress={(day) => handleDatePress(day.dateString)}
+          enableSwipeMonths={true}
           theme={{
             textSectionTitleColor: "#5F5C6B",
-            selectedDayBackgroundColor: "green",
-            todayTextColor: "red",
-            dayTextColor: "black", 
-           
+            todayTextColor: "#34898F",
+            dayTextColor: "black",
 
-            textDayFontFamily: "Quicksand_600SemiBold", 
-            textMonthFontFamily: "MontserratAlternates_600SemiBold", 
+            textDayFontFamily: "Quicksand_600SemiBold",
+            textMonthFontFamily: "MontserratAlternates_600SemiBold",
             textDayHeaderFontFamily: "Quicksand_600SemiBold",
-            monthTitleTextStyle: { fontSize: 50 }, // Defina o tamanho da fonte do mês 
-            
-            
           }}
           monthFormat={"MMMM yyyy"}
         />
       </ViewCalendar>
       <TextSelectDatelabel>Selecione um horário disponível</TextSelectDatelabel>
-      <ComponenteSelecaoDeHorario/>
-      <ButtonRegister>
+      <ComponenteSelecaoDeHorario />
+      <ButtonRegister onPress={() => setShowModalConfirm(true)}>
         <ButtonTitle>CONFIRMAR</ButtonTitle>
       </ButtonRegister>
+
+      <ConfirmAppointment
+        visible={showModalConfirm}
+        setShowModalDoctor={setShowModalConfirm}
+      />
 
       <ContentAccount>
         <LinkAccount>Cancelar</LinkAccount>
       </ContentAccount>
-      
     </ContainerSelectDate>
   );
 };
