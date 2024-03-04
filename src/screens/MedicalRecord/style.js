@@ -15,5 +15,14 @@ export const ButtonMedicalRecord = styled.TouchableOpacity`
 export const TextBottonRecord = styled.Text`
     color: white;
     font-size: 16px;
-    font-family: "MontserratAlternates_700Bold"
+    font-family: "MontserratAlternates_700Bold";
 `;
+
+export const ContainerImageExame = styled.View`
+    width: 100%;
+    height: 204px;
+    border: 2px solid #49b3ba;
+    border-radius: 5px;
+`;
+
+
