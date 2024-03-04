@@ -24,13 +24,9 @@ import { useState } from "react";
 import ComponenteSelecaoDeHorario from "../../components/ComponentePicke/ComponentePicke";
 import { ConfirmAppointment } from "../../components/ConfirmAppointment/ConfirmAppointment";
 
-
-export const SelectDate = ({
-
-}) => {
+export const SelectDate = ({}) => {
   const [selected, setSelected] = useState("");
   const [showModalConfirm, setShowModalConfirm] = useState(false);
-
 
   const [fontsLoaded, fontsError] = useFonts({
     MontserratAlternates_600SemiBold,
@@ -42,6 +38,25 @@ export const SelectDate = ({
   if (!fontsLoaded && !fontsError) {
     return null;
   }
+
+  const handleDatePress = (date) => {
+    setSelected(date);
+  };
+
+  const today = new Date().toISOString().split('T')[0]; // Obter a data atual em formato "YYYY-MM-DD"
+
+  const markedDates = {
+    [today]: {
+      selected: true,
+      selectedColor: "#496bba",
+      dotColor: "#60BFC5",
+    },
+    [selected]: {
+      selected: true,
+      selectedColor: "#60BFC5",
+      dotColor: "#60BFC5",
+    },
+  };
 
   LocaleConfig.locales["pt-br"] = {
     monthNames: [
@@ -100,17 +115,14 @@ export const SelectDate = ({
 
   LocaleConfig.defaultLocale = "pt-br";
 
-
-
   return (
     <ContainerSelectDate>
       <TitleSelectDoctor>Selecionar data</TitleSelectDoctor>
       <ViewCalendar>
         <Calendar
-          onDayPress={(day) => console.log("Dia selecionado:", day)}
           hideArrows={true}
-          // markedDates={markedDates}
-          // onDayPress={(day) => handleDatePress(day.dateString)}
+          markedDates={markedDates}
+          onDayPress={(day) => handleDatePress(day.dateString)}
           enableSwipeMonths={true}
           theme={{
             textSectionTitleColor: "#5F5C6B",
@@ -132,7 +144,7 @@ export const SelectDate = ({
 
       <ConfirmAppointment
         visible={showModalConfirm}
-        setShowModalDoctor={setShowModalConfirm}
+        setShowModalConfirm={setShowModalConfirm}
       />
 
       <ContentAccount>

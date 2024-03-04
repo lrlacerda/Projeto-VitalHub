@@ -39,10 +39,7 @@ export const PatientRecordInsertion = () => {
 
                     <ContainerText>
                         <TextRecordPaciente2>
-                            Richard Kosta relatou histórico de hipertensão
-                            arterial e colesterol elevado na família. Ele também
-                            mencionou estar enfrentando dificuldades para
-                            controlar seu peso nos últimos meses.
+                           
                         </TextRecordPaciente2>
                     </ContainerText>
 
@@ -52,7 +49,7 @@ export const PatientRecordInsertion = () => {
 
                     <ContainerText2>
                         <TextRecordPaciente2>
-                            Hipertensão arterial.
+                           
                         </TextRecordPaciente2>
                     </ContainerText2>
 
@@ -60,17 +57,7 @@ export const PatientRecordInsertion = () => {
 
                     <ContainerText>
                         <TextRecordPaciente2>
-                            Plano Alimentar: Com base nas necessidades e
-                            objetivos específicos de Maria, desenvolvemos um
-                            plano alimentar personalizado, focado em: Incluir
-                            uma variedade de alimentos naturais, como frutas,
-                            legumes, grãos integrais, proteínas magras e
-                            gorduras saudáveis. Controlar o tamanho das porções
-                            e praticar a moderação nas refeições. Reduzir o
-                            consumo de alimentos processados, fast food e
-                            bebidas açucaradas. Estabelecer horários regulares
-                            para as refeições e priorizar a alimentação
-                            consciente.
+                     
                         </TextRecordPaciente2>
                     </ContainerText>
 

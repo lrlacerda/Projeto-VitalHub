@@ -32,6 +32,8 @@ import CancelationModal from "./src/components/CancelationModal/CancelationModal
 import { SelectDoctor } from "./src/screens/SelectDoctor/SelectDoctor";
 import { SelectClinic } from "./src/screens/SelectClinic/SelectClinic";
 import { SelectDate } from "./src/screens/SelectDate/SelectDate";
+import { ConsultationLocation } from "./src/screens/ConsultationLocation/ConsultationLocation";
+import { MedicalRecord } from "./src/screens/MedicalRecord/MedicalRecord";
 
 export default function App() {
   const [fontsLoaded, fontsError] = useFonts({
@@ -177,7 +179,22 @@ export default function App() {
           //titulo da tela
           options={{ Title: "SelectDate" }}
         />
-  
+        <Stack.Screen
+          //nome da tela
+          name="ConsultationLocation"
+          //componente que sera chamado
+          component={ConsultationLocation}
+          //titulo da tela
+          options={{ Title: "ConsultationLocation" }}
+        />
+        <Stack.Screen
+          //nome da tela
+          name="MedicalRecord"
+          //componente que sera chamado
+          component={MedicalRecord}
+          //titulo da tela
+          options={{ Title: "MedicalRecord" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
