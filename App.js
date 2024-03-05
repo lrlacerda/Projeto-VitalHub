@@ -34,6 +34,7 @@ import { SelectClinic } from "./src/screens/SelectClinic/SelectClinic";
 import { SelectDate } from "./src/screens/SelectDate/SelectDate";
 import { ConsultationLocation } from "./src/screens/ConsultationLocation/ConsultationLocation";
 import { MedicalRecord } from "./src/screens/MedicalRecord/MedicalRecord";
+import { Main } from "./src/screens/Main/Main";
 
 export default function App() {
   const [fontsLoaded, fontsError] = useFonts({
@@ -61,20 +62,28 @@ export default function App() {
         {/* Tela */}
         <Stack.Screen
           //nome da tela
-          name="Navegacao"
-          //componente que sera chamado
-          component={Navegacao}
-          //titulo da tela
-          options={{ title: "Navegacao" }}
-        />
-        <Stack.Screen
-          //nome da tela
           name="Login"
           //componente que sera chamado
           component={Login}
           //titulo da tela
           options={{ title: "Login" }}
         />
+        <Stack.Screen
+          //nome da tela
+          name="Main"
+          //componente que sera chamado
+          component={Main}
+          options={{ title: "Main" }}
+        />
+        {/* <Stack.Screen
+          //nome da tela
+          name="Navegacao"
+          //componente que sera chamado
+          component={Navegacao}
+          //titulo da tela
+          options={{ title: "Navegacao" }}
+        /> */}
+       
         <Stack.Screen
           //nome da tela
           name="ForgotPassword"

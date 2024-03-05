@@ -1,71 +1,74 @@
 import {
-    Container,
-    ContainerInputs,
-    ContainerInputs2,
-    ContainerInputs3,
-    ContainerRecordInsertion,
-    ContainerText3,
+  Container,
+  ContainerInputs,
+  ContainerInputs2,
+  ContainerInputs3,
+  ContainerRecordInsertion,
+  ContainerText3,
 } from "../../components/Container/Style";
 import { ImageRecordInsertion } from "../../components/Logo/Style";
 import { TitleRecordInsertion2 } from "../../components/Title/Style";
 import {
-    TextRecordInsertion,
-    TextRecordInsertion2,
-    TextRecordPaciente,
+  TextRecordInsertion,
+  TextRecordInsertion2,
+  TextRecordPaciente,
 } from "../../components/Text/Text";
 import {
-    InputRecordInsertion,
-    InputRecordInsertion2,
+  InputRecordInsertion,
+  InputRecordInsertion2,
 } from "../../components/Input/Input";
 import {
-    ButtonRecordInsertion,
-    ButtonTitle,
+  ButtonExitApp,
+  ButtonRecordInsertion,
+  ButtonTitle,
 } from "../../components/Button/style";
 
 export const PatientProfile2 = () => {
-    return (
-        <Container>
-            <ContainerRecordInsertion>
-                <ImageRecordInsertion
-                    source={require("../../assets/imagemPaciente.png")}
-                />
+  return (
+    <Container>
+      <ContainerRecordInsertion>
+        <ImageRecordInsertion
+          source={require("../../assets/imagemPaciente.png")}
+        />
 
-                <TitleRecordInsertion2>Richard Kosta</TitleRecordInsertion2>
+        <TitleRecordInsertion2>Richard Kosta</TitleRecordInsertion2>
 
-                <TextRecordPaciente>richard.kosta@gmail.com</TextRecordPaciente>
+        <TextRecordPaciente>richard.kosta@gmail.com</TextRecordPaciente>
 
-                <ContainerInputs>
-                    <TextRecordInsertion>
-                        Data de nascimento:
-                    </TextRecordInsertion>
-                    <InputRecordInsertion2 placeholder="04/05/1999" />
+        <ContainerInputs>
+          <TextRecordInsertion>Data de nascimento:</TextRecordInsertion>
+          <InputRecordInsertion2 placeholder="04/05/1999" />
 
-                    <TextRecordInsertion>CPF</TextRecordInsertion>
-                    <InputRecordInsertion2 placeholder="859********" />
+          <TextRecordInsertion>CPF</TextRecordInsertion>
+          <InputRecordInsertion2 placeholder="859********" />
 
-                    <TextRecordInsertion>Endereço</TextRecordInsertion>
-                    <InputRecordInsertion2 placeholder="Rua Vicenso Silva, 987" />
+          <TextRecordInsertion>Endereço</TextRecordInsertion>
+          <InputRecordInsertion2 placeholder="Rua Vicenso Silva, 987" />
 
-                    <ContainerInputs2>
-                        <ContainerInputs3>
-                            <TextRecordInsertion2>Cep</TextRecordInsertion2>
-                            <InputRecordInsertion2 placeholder="06548-909" />
-                        </ContainerInputs3>
+          <ContainerInputs2>
+            <ContainerInputs3>
+              <TextRecordInsertion2>Cep</TextRecordInsertion2>
+              <InputRecordInsertion2 placeholder="06548-909" />
+            </ContainerInputs3>
 
-                        <ContainerInputs3>
-                            <TextRecordInsertion2>Cidade</TextRecordInsertion2>
-                            <InputRecordInsertion2 placeholder="Moema-SP" />
-                        </ContainerInputs3>
-                    </ContainerInputs2>
+            <ContainerInputs3>
+              <TextRecordInsertion2>Cidade</TextRecordInsertion2>
+              <InputRecordInsertion2 placeholder="Moema-SP" />
+            </ContainerInputs3>
+          </ContainerInputs2>
 
-                    <ButtonRecordInsertion>
-                        <ButtonTitle>SALVAR</ButtonTitle>
-                    </ButtonRecordInsertion>
-                    <ButtonRecordInsertion>
-                        <ButtonTitle>EDITAR</ButtonTitle>
-                    </ButtonRecordInsertion>
-                </ContainerInputs>
-            </ContainerRecordInsertion>
-        </Container>
-    );
+          <ButtonRecordInsertion>
+            <ButtonTitle>SALVAR</ButtonTitle>
+          </ButtonRecordInsertion>
+          <ButtonRecordInsertion>
+            <ButtonTitle>EDITAR</ButtonTitle>
+          </ButtonRecordInsertion>
+
+          <ButtonExitApp>
+            <ButtonTitle>sair do app</ButtonTitle>
+          </ButtonExitApp>
+        </ContainerInputs>
+      </ContainerRecordInsertion>
+    </Container>
+  );
 };

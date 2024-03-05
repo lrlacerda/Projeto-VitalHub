@@ -13,7 +13,13 @@ import { Title } from "../../components/Title/Style";
 
 import { AntDesign } from '@expo/vector-icons';
 
-export const Login = () => {
+export const Login = ({navigation}) => {
+
+  //Chamar a função login
+  async function Login() {
+    navigation.navigate("Main")
+  }
+
   return (
     <Container>
       <Logo source={require("../../assets/VitalHubLogo.png")} />
@@ -27,7 +33,7 @@ export const Login = () => {
 
       <LinkMedium>Esqueceu sua senha?</LinkMedium>
 
-      <Button>
+      <Button onPress={() => Login()}>
         <ButtonTitle>ENTRAR</ButtonTitle>
       </Button>
 

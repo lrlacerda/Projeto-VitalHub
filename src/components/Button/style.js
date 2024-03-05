@@ -144,3 +144,10 @@ export const ButtonCard = styled.TouchableOpacity`
   margin-left: 60px;
   margin-top: 20px;
 `;
+
+export const ButtonExitApp = styled(Button)`
+  background-color: #ACABB7;
+  align-self: center;
+  width: 60%;
+  margin-top: 30px;
+`

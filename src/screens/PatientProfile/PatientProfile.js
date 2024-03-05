@@ -18,6 +18,7 @@ import {
     InputRecordInsertion2,
 } from "../../components/Input/Input";
 import {
+    ButtonExitApp,
     ButtonRecordInsertion,
     ButtonTitle,
 } from "../../components/Button/style";
@@ -65,6 +66,12 @@ export const PatientProfile = () => {
                     <ButtonRecordInsertion>
                         <ButtonTitle>SALVAR</ButtonTitle>
                     </ButtonRecordInsertion>
+                    <ButtonRecordInsertion>
+                        <ButtonTitle>EDITAR</ButtonTitle>
+                    </ButtonRecordInsertion>
+                    <ButtonExitApp>
+                    <ButtonTitle>sair do app</ButtonTitle>
+                    </ButtonExitApp>
                 </ContainerInputs>
             </ContainerRecordInsertion>
         </Container>
