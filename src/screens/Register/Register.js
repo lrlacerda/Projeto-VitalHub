@@ -8,12 +8,20 @@ import { Button, ButtonRegister, ButtonTitle } from "../../components/Button/sty
 import { ContentAccount } from "../../components/ContentAccount/ContentAccount";
 import { LinkAccount } from "../../components/Links/Links";
 
-export const Register = () => {
+export const Register = ({navigation}) => {
+
+  //Chamar a função login
+  async function Login() {
+    navigation.replace("Login")
+  }
+  //Chamar a função PatientConsultations
+  async function PatientConsultations() {
+    navigation.replace("Main")
+  }
+
   return (
     <Container>
-      <ContainerIcon>
-        <Feather name="x-circle" size={35} color="#49B3BA" />
-      </ContainerIcon>
+     
       <Logo source={require("../../assets/VitalHubLogo.png")} />
 
       <Title>Criar conta</Title>
@@ -27,12 +35,12 @@ export const Register = () => {
       <Input placeholder="Senha" secureTextEntry />
       <Input placeholder="Confirmar Senha" secureTextEntry />
 
-      <ButtonRegister>
+      <ButtonRegister onPress={() => PatientConsultations()}>
         <ButtonTitle>CADASTRAR</ButtonTitle>
       </ButtonRegister>
 
-      <ContentAccount>
-        <LinkAccount>Cancelar</LinkAccount>
+      <ContentAccount >
+        <LinkAccount onPress={() => Login()}>Cancelar</LinkAccount>
       </ContentAccount>
 
     </Container>

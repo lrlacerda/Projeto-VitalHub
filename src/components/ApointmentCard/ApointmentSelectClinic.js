@@ -20,7 +20,13 @@ export const ApointmentSelectClinic = ({
   onPressClinic,
   onPressCancel,
   onPressAppointment,
+  navigation,
 }) => {
+
+  //Chamar a função PatientProfile
+  async function PatientProfile() {
+    navigation.replace("PatientProfile")
+  }
 
 
   return (

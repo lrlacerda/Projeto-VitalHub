@@ -25,6 +25,7 @@ export const LinkMediumEmailReenviar = styled(LinkMedium)`
   align-items: center;
   margin-left: 135px;
   margin-top: 30px;
+  color: #344F8F
 `;
 export const LinkRecordInsertion = styled(LinkMedium)`
   align-self: center;

@@ -17,7 +17,15 @@ export const Login = ({navigation}) => {
 
   //Chamar a função login
   async function Login() {
-    navigation.navigate("Main")
+    navigation.replace("Main")
+  }
+  //Chamar a função ForgotPassword
+  async function ForgotPassword() {
+    navigation.navigate("ForgotPassword")
+  }
+  //Chamar a função Register
+  async function Register() {
+    navigation.navigate("Register")
   }
 
   return (
@@ -31,7 +39,7 @@ export const Login = ({navigation}) => {
       {/* (secureTextEntry) nao aparece a senha enquanto digita */}
       <Input placeholder="Senha" secureTextEntry />
 
-      <LinkMedium>Esqueceu sua senha?</LinkMedium>
+      <LinkMedium onPress={() => ForgotPassword()}>Esqueceu sua senha?</LinkMedium>
 
       <Button onPress={() => Login()}>
         <ButtonTitle>ENTRAR</ButtonTitle>
@@ -44,7 +52,7 @@ export const Login = ({navigation}) => {
 
       <ContentAccount>
             <TextAccount>Não tem conta?</TextAccount>
-            <LinkAccount>Crie uma conta agora!</LinkAccount>
+            <LinkAccount onPress={() => Register()}>Crie uma conta agora!</LinkAccount>
         </ContentAccount> 
     </Container>
   );

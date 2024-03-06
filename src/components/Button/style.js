@@ -81,14 +81,16 @@ export const Button3 = styled(Button)`
 `;
 
 export const Button4 = styled.TouchableOpacity`
-  background-color: #49b3ba;
+ background-color: #49b3ba;
   width: 60px;
   height: 60px;
   border-radius: 5px;
   justify-content: center;
   align-items: center;
-  margin-left: 290px;
-  margin-bottom: 65px;
+  position: absolute;
+  bottom: 5px; /* Alterando para bottom */
+  right: 20px;
+  z-index: 999;
   elevation: 5px;
 `;
 
@@ -146,8 +148,8 @@ export const ButtonCard = styled.TouchableOpacity`
 `;
 
 export const ButtonExitApp = styled(Button)`
-  background-color: #ACABB7;
+  background-color: #acabb7;
   align-self: center;
   width: 60%;
   margin-top: 30px;
-`
+`;

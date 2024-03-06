@@ -107,7 +107,7 @@ export const ContainerIconPatient = styled.View`
 `;
 
 export const ContainerIconPatient2 = styled.View`
-  margin-left: 85px;
+  margin-left: 120px;
   margin-top: 90px;
 `;
 

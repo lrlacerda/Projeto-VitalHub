@@ -10,10 +10,20 @@ import { Input } from "../../components/Input/Input";
 
 import { Feather } from "@expo/vector-icons";
 
-export const ForgotPassword = () => {
+export const ForgotPassword = ({navigation}) => {
+
+  //Chamar a função EmailCode
+  async function EmailCode() {
+    navigation.replace("EmailCode")
+  }
+  //Chamar a função Login
+  async function Login() {
+    navigation.replace("Login")
+  }
+  
   return (
     <Container>
-      <ContainerIcon>
+      <ContainerIcon onPress={() => Login()}>
         <Feather name="arrow-left-circle" size={35} color="#49B3BA" />
       </ContainerIcon>
       <Logo source={require("../../assets/VitalHubLogo.png")} />
@@ -27,7 +37,7 @@ export const ForgotPassword = () => {
 
       <Input placeholder="Usuário ou E-mail" />
 
-      <ButtonForgotPassword>
+      <ButtonForgotPassword onPress={() => EmailCode()}>
         <ButtonTitle>CONTINUAR</ButtonTitle>
       </ButtonForgotPassword>
     </Container>

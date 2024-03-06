@@ -15,11 +15,18 @@ import {
   TextbasicModal2,
 } from "./Style";
 
-const ScheduleConsultationModal = ({
+ const ScheduleConsultationModal = ({
   visible,
   setScheduleConsultation,
+  navigation,
   ...rest
 }) => {
+
+  //Chamar a função SelectClinic
+  async function SelectClinic() {
+    navigation.replace("SelectClinic");
+  }
+
   return (
     <Modal {...rest} visible={visible} transparent={true} animationType="fade">
       <PatientModal>
@@ -38,8 +45,8 @@ const ScheduleConsultationModal = ({
 
           <InputModal2 placeholder="Informe a localização" />
 
-          <ButtonModal onPress={() => setScheduleConsultation(false)}>
-            <ButtonTitle>CONTINUAR</ButtonTitle>
+          <ButtonModal onPress={() => SelectClinic()}>
+            <ButtonTitle >CONTINUAR</ButtonTitle>
           </ButtonModal>
 
           <ContentAccount>

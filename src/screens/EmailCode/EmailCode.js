@@ -15,10 +15,20 @@ import {
   ButtonTitle,
 } from "../../components/Button/style";
 
-export const EmailCode = () => {
+export const EmailCode = ({navigation}) => {
+
+  //Chamar a função Login
+  async function Login() {
+    navigation.replace("Login")
+  }
+  //Chamar a função NewPassword
+  async function NewPassword() {
+    navigation.replace("NewPassword")
+  }
+
   return (
     <Container>
-      <ContainerIcon>
+      <ContainerIcon onPress={() => Login()}>
         <Entypo name="arrow-with-circle-left" size={35} color="#49B3BA" />
       </ContainerIcon>
       <Logo source={require("../../assets/VitalHubLogo.png")} />
@@ -35,7 +45,7 @@ export const EmailCode = () => {
         <InputPassword placeholder="0" />
       </ContainerEmailCode>
 
-      <ButtonEmailCode>
+      <ButtonEmailCode onPress={() => NewPassword()}>
         <ButtonTitle>ENTRAR</ButtonTitle>
       </ButtonEmailCode>
 

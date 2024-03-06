@@ -11,11 +11,17 @@ import {
 
 import { Feather } from "@expo/vector-icons";
 
-export const NewPassword = () => {
+export const NewPassword = ({navigation}) => {
+
+  //Chamar a função Login
+  async function Login() {
+    navigation.replace("Login")
+  }
+
   return (
     <Container>
       <ContainerIcon>
-        <Feather name="x-circle" size={35} color="#49B3BA" />
+        <Feather onPress={() => Login()} name="x-circle" size={35} color="#49B3BA" />
       </ContainerIcon>
       <Logo source={require("../../assets/VitalHubLogo.png")} />
 
@@ -26,7 +32,7 @@ export const NewPassword = () => {
       <Input placeholder="Nova Senha" secureTextEntry />
       <Input placeholder="Confirmar nova senha" secureTextEntry />
 
-      <ButtonNewPassword>
+      <ButtonNewPassword onPress={() => Login()}>
         <ButtonTitle>CONFIRMAR NOVA SENHA</ButtonTitle>
       </ButtonNewPassword>
     </Container>
