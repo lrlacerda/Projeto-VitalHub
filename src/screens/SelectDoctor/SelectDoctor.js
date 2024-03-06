@@ -7,43 +7,69 @@ import { LinkAccount } from "../../components/Links/Links";
 import { TitleSelectDoctor } from "../../components/Title/Style";
 import { ListComponent } from "../../components/List/List";
 
-export const SelectDoctor = () => {
-  const [selectedDoctorId, setSelectedDoctorId] = useState(null);
+export const SelectDoctor = ({ navigation }) => {
+    const [selectedDoctorId, setSelectedDoctorId] = useState(null);
 
-  // Função para atualizar o estado do item selecionado
-  const handleSelectDoctor = (doctorId) => {
-    setSelectedDoctorId(doctorId);
-  };
+    // Função para atualizar o estado do item selecionado
+    const handleSelectDoctor = (doctorId) => {
+        setSelectedDoctorId(doctorId);
+    };
 
-  // Lista de médicos
-  const doctors = [
-    { id: 1, name: 'Dr. Dra Alessandra', specialty: 'Dermatologista, Esteticista', image: require('../../assets/imagemDoctor1.png')},
-    { id: 2, name: 'Dr. Lucas', specialty: 'Cardiologista', image: require('../../assets/imgLucas.jpg')},
-    { id: 3, name: 'Dra. Maria', specialty: 'Pediatra', image: require('../../assets/imgdoctor2.png')},
-    // Adicione mais médicos conforme necessário
-  ];
+    // Lista de médicos
+    const doctors = [
+        {
+            id: 1,
+            name: "Dr. Dra Alessandra",
+            specialty: "Dermatologista, Esteticista",
+            image: require("../../assets/imagemDoctor1.png"),
+        },
+        {
+            id: 2,
+            name: "Dr. Lucas",
+            specialty: "Cardiologista",
+            image: require("../../assets/imgLucas.jpg"),
+        },
+        {
+            id: 3,
+            name: "Dra. Maria",
+            specialty: "Pediatra",
+            image: require("../../assets/imgdoctor2.png"),
+        },
+        // Adicione mais médicos conforme necessário
+    ];
 
-  return (
-    <ContainerSelectDoctor>
-      <TitleSelectDoctor>Selecionar médico</TitleSelectDoctor>
-      <ListComponent
-        data={doctors}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <ApointmentSelectDoctor
-            doctor={item}
-            selectedDoctorId={selectedDoctorId}
-            onSelectDoctor={handleSelectDoctor}
-          />
-        )}
-      />
-      <ButtonRegister>
-        <ButtonTitle>CONTINUAR</ButtonTitle>
-      </ButtonRegister>
+    //Chamar a função PatientConsultations
+    async function PatientConsultations() {
+        navigation.replace("PatientConsultations");
+    }
+    //Chamar a função SelectDate
+    async function SelectDate() {
+        navigation.replace("SelectDate");
+    }
 
-      <ContentAccount>
-        <LinkAccount>Cancelar</LinkAccount>
-      </ContentAccount>
-    </ContainerSelectDoctor>
-  );
+    return (
+        <ContainerSelectDoctor>
+            <TitleSelectDoctor>Selecionar médico</TitleSelectDoctor>
+            <ListComponent
+                data={doctors}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={({ item }) => (
+                    <ApointmentSelectDoctor
+                        doctor={item}
+                        selectedDoctorId={selectedDoctorId}
+                        onSelectDoctor={handleSelectDoctor}
+                    />
+                )}
+            />
+            <ButtonRegister onPress={() => SelectDate()}>
+                <ButtonTitle>CONTINUAR</ButtonTitle>
+            </ButtonRegister>
+
+            <ContentAccount>
+                <LinkAccount onPress={() => PatientConsultations()}>
+                    Cancelar
+                </LinkAccount>
+            </ContentAccount>
+        </ContainerSelectDoctor>
+    );
 };

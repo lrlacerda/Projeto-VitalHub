@@ -14,42 +14,50 @@ import { LinkAccount } from "../Links/Links";
 import { ModalContent2 } from "../InsertMedicalRecordModal/style";
 
 export const ConfirmAppointment = ({
-  visible,
-  setShowModalConfirm,
-  ...rest
+    visible,
+    navigation,
+    setShowModalConfirm,
+    ...rest
 }) => {
-  return (
-    <Modal {...rest} visible={visible} transparent={true} animationType="fade">
-      <ConteinerConfirm>
-        <ModalContent2>
-          <ContainerTextConfirm>
-            <TextConfirm>Agendar consulta</TextConfirm>
-            <TextConfirm2>
-              Consulte os dados selecionados para a sua consulta
-            </TextConfirm2>
-          </ContainerTextConfirm>
-          <ContainerConfirm2>
-            <ContainerConfirm3>
-              <TextConfirm3>Data da consulta</TextConfirm3>
-            </ContainerConfirm3>
-            <ContainerConfirm3>
-              <TextConfirm3>Médico(a) da consulta</TextConfirm3>
-            </ContainerConfirm3>
-            <ContainerConfirm3>
-              <TextConfirm3>Local da consulta</TextConfirm3>
-            </ContainerConfirm3>
-            <ContainerConfirm3>
-              <TextConfirm3>Tipo da consulta</TextConfirm3>
-            </ContainerConfirm3>
-          </ContainerConfirm2>
-          <ButtonModalDoctor onPress={() => setShowModalConfirm(false)}>
-            <ButtonTitleDoctor>Confirmar</ButtonTitleDoctor>
-          </ButtonModalDoctor>
-          <ContentAccount>
-            <LinkAccount>Cancelar</LinkAccount>
-          </ContentAccount>
-        </ModalContent2>
-      </ConteinerConfirm>
-    </Modal>
-  );
+    return (
+        <Modal
+            {...rest}
+            visible={visible}
+            transparent={true}
+            animationType="fade"
+        >
+            <ConteinerConfirm>
+                <ModalContent2>
+                    <ContainerTextConfirm>
+                        <TextConfirm>Agendar consulta</TextConfirm>
+                        <TextConfirm2>
+                            Consulte os dados selecionados para a sua consulta
+                        </TextConfirm2>
+                    </ContainerTextConfirm>
+                    <ContainerConfirm2>
+                        <ContainerConfirm3>
+                            <TextConfirm3>Data da consulta</TextConfirm3>
+                        </ContainerConfirm3>
+                        <ContainerConfirm3>
+                            <TextConfirm3>Médico(a) da consulta</TextConfirm3>
+                        </ContainerConfirm3>
+                        <ContainerConfirm3>
+                            <TextConfirm3>Local da consulta</TextConfirm3>
+                        </ContainerConfirm3>
+                        <ContainerConfirm3>
+                            <TextConfirm3>Tipo da consulta</TextConfirm3>
+                        </ContainerConfirm3>
+                    </ContainerConfirm2>
+                    <ButtonModalDoctor
+                        onPress={() => setShowModalConfirm(false)}
+                    >
+                        <ButtonTitleDoctor>Confirmar</ButtonTitleDoctor>
+                    </ButtonModalDoctor>
+                    <ContentAccount>
+                        <LinkAccount>Cancelar</LinkAccount>
+                    </ContentAccount>
+                </ModalContent2>
+            </ConteinerConfirm>
+        </Modal>
+    );
 };
