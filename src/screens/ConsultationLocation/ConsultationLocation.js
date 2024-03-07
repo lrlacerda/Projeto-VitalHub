@@ -1,12 +1,28 @@
 import { StyleSheet, View } from "react-native";
 
 import MapView, { Marker } from "react-native-maps";
-import { Container, ContainerLocation2, ContainerLocation3, ContainerLocationText, ContainerTextLocation, ContainerTextLocation2, TextConsultationLocation, TextConsultationLocation2, TextLocationInput } from "./style";
-import { ContainerInputs, ContainerText, ContainerText2 } from "../../components/Container/Style";
+import {
+  Container,
+  ContainerLocation2,
+  ContainerLocation3,
+  ContainerLocationText,
+  ContainerTextLocation,
+  ContainerTextLocation2,
+  TextConsultationLocation,
+  TextConsultationLocation2,
+  TextLocationInput,
+} from "./style";
+import { ContainerInputs } from "../../components/Container/Style";
 import { TextRecordPaciente2 } from "../../components/Text/Text";
+import { ContentAccount } from "../../components/ContentAccount/ContentAccount";
+import { LinkAccount } from "../../components/Links/Links";
 
+export const ConsultationLocation = ({ navigation }) => {
+  //Chamar a função PatientConsultations
+  async function PatientConsultations() {
+    navigation.replace("PatientConsultations");
+  }
 
-export const ConsultationLocation = () => {
   return (
     <Container>
       <View style={styles.container}>
@@ -51,12 +67,17 @@ export const ConsultationLocation = () => {
           <ContainerLocation3>
             <TextLocationInput>Bairro</TextLocationInput>
 
-            <ContainerTextLocation2>
-              <TextRecordPaciente2></TextRecordPaciente2>
+            <ContainerTextLocation2
+              onPress={() => NavigationPreloadManager.replace("Main")}
+            >
+              <TextRecordPaciente2>Voltar</TextRecordPaciente2>
             </ContainerTextLocation2>
           </ContainerLocation3>
         </ContainerLocation2>
       </ContainerInputs>
+      <ContentAccount>
+        <LinkAccount onPress={() => PatientConsultations()}>Voltar</LinkAccount>
+      </ContentAccount>
     </Container>
   );
 };

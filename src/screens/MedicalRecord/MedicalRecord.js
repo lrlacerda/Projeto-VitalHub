@@ -5,7 +5,6 @@ import {
 } from "../../components/Container/Style";
 import { ImageRecordInsertion } from "../../components/Logo/Style";
 import {
-  TextButtonCard,
   TextRecordInsertion,
   TextRecordPaciente,
 } from "../../components/Text/Text";
@@ -44,7 +43,7 @@ import {
 import { StyleSheet } from "react-native";
 import { ButtonCard } from "../../components/Button/style";
 
-export const MedicalRecord = () => {
+export const MedicalRecord = ({ navigation }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   //ModalCamera

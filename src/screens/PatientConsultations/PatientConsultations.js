@@ -52,6 +52,8 @@ export const PatientConsultations = ({ navigation }) => {
 
   const [activeIcon, setActiveIcon] = useState("agenda"); // Estado para armazenar o ícone ativo
 
+  const [profile, setProfile] = useState("paciente")
+
   //Chamar a função PatientProfile
   async function PatientProfile() {
     navigation.replace("PatientProfile");
@@ -124,6 +126,7 @@ export const PatientConsultations = ({ navigation }) => {
           statusLista == item.situacao && (
             <ApointmentCardDoctor
               situacao={item.situacao}
+              navigation={navigation}
               onPressCancel={() => setShowModalCancel(true)}
               onPressAppointment={() => setShowModalAppointment(true)}
               onPressDoctor={() => setShowModalDoctor(true)}

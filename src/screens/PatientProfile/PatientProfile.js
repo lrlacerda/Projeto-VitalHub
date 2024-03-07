@@ -23,7 +23,13 @@ import {
     ButtonTitle,
 } from "../../components/Button/style";
 
-export const PatientProfile = () => {
+export const PatientProfile = ({navigation}) => {
+
+    //Chamar a função Login
+    async function Login() {
+        navigation.replace("Login");
+    }
+
     return (
         <Container>
             <ContainerRecordInsertion>
@@ -69,7 +75,7 @@ export const PatientProfile = () => {
                     <ButtonRecordInsertion>
                         <ButtonTitle>EDITAR</ButtonTitle>
                     </ButtonRecordInsertion>
-                    <ButtonExitApp>
+                    <ButtonExitApp onPress={() => Login()}>
                     <ButtonTitle>sair do app</ButtonTitle>
                     </ButtonExitApp>
                 </ContainerInputs>

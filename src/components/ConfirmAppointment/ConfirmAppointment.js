@@ -19,6 +19,12 @@ export const ConfirmAppointment = ({
     setShowModalConfirm,
     ...rest
 }) => {
+
+    //Chamar a função PatientConsultations
+  async function PatientConsultations() {
+    navigation.replace("PatientConsultations");
+  }
+
     return (
         <Modal
             {...rest}
@@ -49,7 +55,7 @@ export const ConfirmAppointment = ({
                         </ContainerConfirm3>
                     </ContainerConfirm2>
                     <ButtonModalDoctor
-                        onPress={() => setShowModalConfirm(false)}
+                        onPress={() => PatientConsultations()}
                     >
                         <ButtonTitleDoctor>Confirmar</ButtonTitleDoctor>
                     </ButtonModalDoctor>

@@ -9,6 +9,7 @@ import { TextSelectDatelabel, ViewCalendar } from "./style";
 import { ButtonRegister, ButtonTitle } from "../../components/Button/style";
 import { ContentAccount } from "../../components/ContentAccount/ContentAccount";
 import { LinkAccount } from "../../components/Links/Links";
+import {ConfirmAppointment} from "../../components/ConfirmAppointment/ConfirmAppointment"
 
 //import fonts
 import {
@@ -22,7 +23,6 @@ import {
 } from "@expo-google-fonts/quicksand";
 import { useState } from "react";
 import ComponenteSelecaoDeHorario from "../../components/ComponentePicke/ComponentePicke";
-import { ConfirmAppointment } from "../../components/ConfirmAppointment/ConfirmAppointment";
 
 export const SelectDate = ({ navigation }) => {
     const [selected, setSelected] = useState("");
@@ -158,7 +158,7 @@ export const SelectDate = ({ navigation }) => {
                 Selecione um horário disponível
             </TextSelectDatelabel>
             <ComponenteSelecaoDeHorario />
-            <ButtonRegister>
+            <ButtonRegister onPress={() => setShowModalConfirm(true)}>
                 <ButtonTitle>CONFIRMAR</ButtonTitle>
             </ButtonRegister>
 
