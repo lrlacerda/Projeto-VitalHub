@@ -4,7 +4,6 @@ import { ContentIcon, TextIcon } from "./style";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { PatientConsultations } from "../PatientConsultations/PatientConsultations";
-import { Login } from "../Login/Login";
 
 import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 import { PatientProfile } from "../PatientProfile/PatientProfile";
