@@ -2,6 +2,12 @@ import { StyleSheet, View } from "react-native";
 
 import MapView, { Marker } from "react-native-maps";
 import {
+  requestForegroundPermissionsAsync, // solicita o acesso a localização
+  getCurrentPositionAsync, // recebe a localização atual
+} from "expo-location";
+import { useEffect, useState } from "react";
+
+import {
   Container,
   ContainerLocation2,
   ContainerLocation3,
@@ -18,6 +24,21 @@ import { ContentAccount } from "../../components/ContentAccount/ContentAccount";
 import { LinkAccount } from "../../components/Links/Links";
 
 export const ConsultationLocation = ({ navigation }) => {
+  const [initialPosition, setinitialPosition] = useState(null);
+
+  async function CapiturarLocalizacao() {
+    const { granted } = await requestForegroundPermissionsAsync();
+    if (granted) {
+      const captureLocation = await getCurrentPositionAsync();
+
+      setinitialPosition(captureLocation);
+    }
+  }
+
+  useEffect(() => {
+    CapiturarLocalizacao();
+  }, []);
+
   //Chamar a função PatientConsultations
   async function PatientConsultations() {
     navigation.replace("PatientConsultations");

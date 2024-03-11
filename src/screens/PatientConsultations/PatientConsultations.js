@@ -3,8 +3,6 @@ import { useState } from "react";
 import {
   Container,
   Container2,
-  Container6,
-  Container8,
   ContainerHeader,
   ContainerIconPatient2,
   ContainerImageTextPatient,
@@ -15,9 +13,7 @@ import CalendarList from "../../components/CalendarStrip/CalendarList";
 import {
   Button4,
   ButtonTabsStyle,
-  ButtonTabsStyle2,
   TextButton,
-  TextButton2,
 } from "../../components/Button/style";
 import { ListComponent } from "../../components/List/List";
 import CancelationModal from "../../components/CancelationModal/CancelationModal";
