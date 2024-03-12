@@ -38,6 +38,7 @@ export const TextConsultationLocation = styled.Text`
   font-size: 20px;
   font-family: "MontserratAlternates_600SemiBold";
   margin-bottom: 10px;
+  margin-top: 20px;
 `;
 export const TextConsultationLocation2 = styled.Text`
   font-size: 14px;
