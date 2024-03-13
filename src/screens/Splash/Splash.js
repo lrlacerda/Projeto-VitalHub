@@ -1,38 +1,59 @@
-import React, { useEffect, useRef } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
+import { View, Text, StyleSheet, ActivityIndicator, ProgressBarAndroid } from "react-native";
 import LottieView from "lottie-react-native";
+import { useNavigation } from "@react-navigation/native";
 
-import { useNavigation, CommonActions } from '@react-navigation/core'
+import splashjson from "./splashDoctor.json";
 
-import splashjson from "../../../assets/splash.json";
-
-import styled from "styled-components";
-
-export { Splash };
-
-
- const Splash = () => {
-    const navigation = useNavigation()
+export const SplashScreen = () => {
+    const navigation = useNavigation();
+    const [isLoading, setIsLoading] = useState(true);
+    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
-        setTimeout(() => {
-            navigation.dispatch(CommonActions.reset({
-                index: 0,
-                routes: [{name: 'Home'}]
-            }))
-        }, 4000);
-    }, [])
-  return (
-    <View style={styled.comtainer}>
-      <LottieView source={splashjson}  autoPlay loop resizeMode='contain' />
-    </View>
-  );
+        const timer = setTimeout(() => {
+            setIsLoading(false); // Define isLoading como false após 3 segundos (3000 milissegundos)
+            navigation.navigate("Login");
+        }, 3000);
+
+        return () => clearTimeout(timer);
+    }, [navigation]);
+
+    return (
+        <View style={styles.container}>
+            {/* Exibe a animação de splash */}
+            <LottieView
+                source={splashjson}
+                autoPlay
+                loop={false}
+                resizeMode="contain"
+                style={styles.animation}
+                onAnimationFinish={() => setIsLoading(false)} // Define isLoading como false quando a animação terminar
+            />
+            {/* Exibe a barra de carregamento se isLoading for true */}
+            {isLoading && (
+                <ActivityIndicator
+                    style={styles.loader}
+                    size={80}
+                    color="#60BFC5"
+                />
+            )}
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "white",
     },
-})
+    animation: {
+        width: "100%",
+        height: "50%", // Reduz a altura da animação para deixar espaço para a barra de carregamento
+    },
+    loader: {
+        marginTop: 10, // Adiciona margem superior à barra de carregamento
+    },
+});

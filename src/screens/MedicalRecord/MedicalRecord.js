@@ -96,84 +96,104 @@ export const MedicalRecord = ({ navigation }) => {
   }
 
   return (
-    <Container>
-      <ContainerRecordInsertion>
-        <ImageRecordInsertion source={require("../../assets/imgLucas.jpg")} />
-
-        <TitleRecordInsertion>Dr. Lucas Lacerda</TitleRecordInsertion>
-
-        <TextRecordPaciente>Cliníco geral - CRM-15286</TextRecordPaciente>
-
-        <ContainerInputs>
-          <TextRecordInsertion>Descrição da consulta</TextRecordInsertion>
-
-          <InputRecordInsertion />
-
-          <TextRecordInsertion>Diagnóstico do paciente</TextRecordInsertion>
-
-          <InputRecordInsertion2 />
-          <TextRecordInsertion>Prescrição médica</TextRecordInsertion>
-
-          <InputRecordInsertion />
-          <TextRecordInsertion>Exames médicos</TextRecordInsertion>
-
-          <ContainerImageExame>
-            {capturedImage && (
-              <Image
-                source={{ uri: capturedImage }}
-                style={styles.capturedImage}
+      <Container>
+          <ContainerRecordInsertion>
+              <ImageRecordInsertion
+                  source={require("../../assets/imgLucas.jpg")}
               />
-            )}
-          </ContainerImageExame>
 
-          <ViewButtonCamera>
-            <ButtonMedicalRecord onPress={() => setModalVisible(true)}>
-              <MaterialCommunityIcons
-                name="camera-plus-outline"
-                size={28}
-                color="white"
-              />
-              <TextBottonRecord>Enviar</TextBottonRecord>
-            </ButtonMedicalRecord>
+              <TitleRecordInsertion>Dr. Lucas Lacerda</TitleRecordInsertion>
 
-            <ButtonCard onPress={cancelCapture}>
-              <TextButtonRecord>Cancelar</TextButtonRecord>
-            </ButtonCard>
-          </ViewButtonCamera>
+              <TextRecordPaciente>Cliníco geral - CRM-15286</TextRecordPaciente>
 
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={modalVisible}
-            onRequestClose={() => {
-              setModalVisible(!modalVisible);
-            }}
-          >
-            <View style={styles.modalContainer}>
-              <Camera style={styles.camera} type={type} ref={cameraRef}>
-                <View style={styles.cameraButtons}>
-                  <TouchableOpacity onPress={toggleCameraType}>
-                    <Text style={styles.cameraButtonText}>Trocar Câmera</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    onPress={takePicture}
-                    // onPress={() => setModalVisible(false)}
+              <ContainerInputs>
+                  <TextRecordInsertion>
+                      Descrição da consulta
+                  </TextRecordInsertion>
+
+                  <InputRecordInsertion />
+
+                  <TextRecordInsertion>
+                      Diagnóstico do paciente
+                  </TextRecordInsertion>
+
+                  <InputRecordInsertion2 />
+                  <TextRecordInsertion>Prescrição médica</TextRecordInsertion>
+
+                  <InputRecordInsertion />
+                  <TextRecordInsertion>Exames médicos</TextRecordInsertion>
+
+                  <ContainerImageExame>
+                      {capturedImage && (
+                          <Image
+                              source={{ uri: capturedImage }}
+                              style={styles.capturedImage}
+                          />
+                      )}
+                  </ContainerImageExame>
+
+                  <ViewButtonCamera>
+                      <ButtonMedicalRecord
+                          onPress={() => setModalVisible(true)}
+                      >
+                          <MaterialCommunityIcons
+                              name="camera-plus-outline"
+                              size={28}
+                              color="white"
+                          />
+                          <TextBottonRecord>Enviar</TextBottonRecord>
+                      </ButtonMedicalRecord>
+
+                      <ButtonCard onPress={cancelCapture}>
+                          <TextButtonRecord>Cancelar</TextButtonRecord>
+                      </ButtonCard>
+                  </ViewButtonCamera>
+
+                  <Modal
+                      animationType="slide"
+                      transparent={true}
+                      visible={modalVisible}
+                      onRequestClose={() => {
+                          setModalVisible(!modalVisible);
+                      }}
                   >
-                    <Text style={styles.cameraButtonText}>Capturar</Text>
-                  </TouchableOpacity>
-                </View>
-              </Camera>
-            </View>
-          </Modal>
+                      <View style={styles.modalContainer}>
+                          <Camera
+                              style={styles.camera}
+                              type={type}
+                              ref={cameraRef}
+                          >
+                              <View style={styles.cameraButtons}>
+                                  <TouchableOpacity onPress={toggleCameraType}>
+                                      <Text style={styles.cameraButtonText}>
+                                          Trocar Câmera
+                                      </Text>
+                                  </TouchableOpacity>
+                                  <TouchableOpacity
+                                      onPress={takePicture}
+                                      // onPress={() => setModalVisible(false)}
+                                  >
+                                      <Text style={styles.cameraButtonText}>
+                                          Capturar
+                                      </Text>
+                                  </TouchableOpacity>
+                              </View>
+                          </Camera>
+                      </View>
+                  </Modal>
 
-          <ViewLine></ViewLine>
+                  <ViewLine></ViewLine>
 
-          <InputRecordInsertionExame placeholder="Resultado do exame de sangue : " />
+                  <InputRecordInsertionExame placeholder="Descrição do exame:  " />
 
-          <LinkRecordInsertion>Voltar</LinkRecordInsertion>
-        </ContainerInputs>
-      </ContainerRecordInsertion>
-    </Container>
+                  <LinkRecordInsertion
+                      onPress={() => navigation.replace("Main")}
+                  >
+                      Voltar
+                  </LinkRecordInsertion>
+              </ContainerInputs>
+          </ContainerRecordInsertion>
+      </Container>
   );
 };
 
