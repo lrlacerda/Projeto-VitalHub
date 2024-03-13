@@ -35,8 +35,15 @@ import { SelectDate } from "./src/screens/SelectDate/SelectDate";
 import { ConsultationLocation } from "./src/screens/ConsultationLocation/ConsultationLocation";
 import { MedicalRecord } from "./src/screens/MedicalRecord/MedicalRecord";
 import { Main } from "./src/screens/Main/Main";
+import { Splash } from "./src/screens/Splash/Splash";
 
 export default function App() {
+  const splashAnimation = {
+    source: require("../Projeto-VitalHub/assets/splash.json"),
+    autoPlay: true,
+    loop: true,
+  };
+
   const [fontsLoaded, fontsError] = useFonts({
     MontserratAlternates_600SemiBold,
     MontserratAlternates_500Medium,
@@ -59,9 +66,14 @@ export default function App() {
     <NavigationContainer>
       {/* //componente de navegação */}
       <Stack.Navigator
-      //esconder o header a borda de cima 
-        screenOptions={{headerShown : false}} 
+        initialRouteName="Spalsh"
+        //esconder o header a borda de cima
+        screenOptions={{ headerShown: false }}
       >
+        {/* <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false }}>
+         
+        </Stack.Screen> */}
+
         {/* Tela */}
         <Stack.Screen
           //nome da tela
@@ -86,7 +98,7 @@ export default function App() {
           //titulo da tela
           options={{ title: "Navegacao" }}
         /> */}
-       
+
         <Stack.Screen
           //nome da tela
           name="ForgotPassword"

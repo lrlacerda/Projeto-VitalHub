@@ -1,4 +1,3 @@
-
 // Importando dependência do mapa
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 
@@ -32,7 +31,7 @@ import { TextRecordPaciente2 } from "../../components/Text/Text";
 import { ContentAccount } from "../../components/ContentAccount/ContentAccount";
 import { LinkAccount } from "../../components/Links/Links";
 
-import { ActivityIndicator, Image, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, Image, StyleSheet, Text, View, useColorScheme } from "react-native";
 
 export const ConsultationLocation = ({ navigation }) => {
   const mapReference = useRef(null);
@@ -105,6 +104,18 @@ export const ConsultationLocation = ({ navigation }) => {
     setMarkerImageVisible(!markerImageVisible);
   };
 
+  // Obtém o esquema de cores atual do dispositivo (light ou dark)
+  const deviceColorScheme = useColorScheme(); 
+
+  // Define o estado do tema do mapa com base no esquema de cores do dispositivo
+  const [mapTheme, setMapTheme] = useState(deviceColorScheme === 'dark' ? darkMapStyle : grayMapStyle);
+
+  // Atualiza o tema do mapa sempre que o esquema de cores do dispositivo mudar
+  useEffect(() => {
+    setMapTheme(deviceColorScheme === 'dark' ? darkMapStyle : grayMapStyle);
+  }, [deviceColorScheme]);
+
+
   //Chamar a função PatientConsultations
   async function PatientConsultations() {
     navigation.replace("PatientConsultations");
@@ -112,43 +123,43 @@ export const ConsultationLocation = ({ navigation }) => {
 
   return (
     <Container>
-     <View style={styles.container}>
-      {initialPosition != null ? (
-        <MapView
-          ref={mapReference}
-          initialRegion={{
-            latitude: initialPosition.coords.latitude,
-            longitude: initialPosition.coords.longitude,
-            latitudeDelta: 0.005,
-            longitudeDelta: 0.005,
-          }}
-          provider={PROVIDER_GOOGLE}
-          customMapStyle={grayMapStyle}
-          style={styles.map}
-        >
-          <Marker
-            coordinate={{
+      <View style={styles.container}>
+        {initialPosition != null ? (
+          <MapView
+            ref={mapReference}
+            initialRegion={{
               latitude: initialPosition.coords.latitude,
               longitude: initialPosition.coords.longitude,
-            }}
-            title="Posição inicial"
-            description=" Estou aqui"
-            pinColor="#49b3ba"
-            onPress={handleMarkerPress}
-          />
-
-          <MapViewDirections
-            origin={initialPosition.coords}
-            destination={{
-              latitude: -23.5329,
-              longitude: -46.7926,
               latitudeDelta: 0.005,
               longitudeDelta: 0.005,
             }}
-            strokeWidth={5}
-            strokeColor="#496bba"
-            apikey={mapskey}
-          />
+            provider={PROVIDER_GOOGLE}
+            customMapStyle={mapTheme}
+            style={styles.map}
+          >
+            <Marker
+              coordinate={{
+                latitude: initialPosition.coords.latitude,
+                longitude: initialPosition.coords.longitude,
+              }}
+              title="Posição inicial"
+              description=" Estou aqui"
+              pinColor="#49b3ba"
+              onPress={handleMarkerPress}
+            />
+
+            <MapViewDirections
+              origin={initialPosition.coords}
+              destination={{
+                latitude: -23.5329,
+                longitude: -46.7926,
+                latitudeDelta: 0.005,
+                longitudeDelta: 0.005,
+              }}
+              strokeWidth={5}
+              strokeColor="#496bba"
+              apikey={mapskey}
+            />
 
             {/* Adicionando o marcador para o destino */}
             {/* <Marker
@@ -171,22 +182,22 @@ export const ConsultationLocation = ({ navigation }) => {
             strokeColor="#496bba"
             apikey={mapskey}
           /> */}
-        </MapView>
-      ) : (
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator />
-          <Text>Carregando...</Text>
-        </View>
-      )}
-      {markerImageVisible && (
-        <View style={styles.markerImageContainer}>
-          {/* <Image
+          </MapView>
+        ) : (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator />
+            <Text>Carregando...</Text>
+          </View>
+        )}
+        {markerImageVisible && (
+          <View style={styles.markerImageContainer}>
+            {/* <Image
             source={require("./assets/image/entrega_hospital_igesp_fotofredcasagrande_24-03-2023-84-scaled.jpg")} // Substitua pelo caminho da sua imagem
             style={styles.markerImage}
           /> */}
-        </View>
-      )}
-    </View>
+          </View>
+        )}
+      </View>
 
       <ContainerLocationText>
         <TextConsultationLocation>Clínica Natureh</TextConsultationLocation>
@@ -231,7 +242,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "43%",
     position: "absolute",
-    
   },
   map: {
     flex: 1,
@@ -476,3 +486,169 @@ const grayMapStyle = [
     ],
   },
 ];
+
+
+
+
+const darkMapStyle = [
+  {
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#242f3e", // Cor do plano de fundo do mapa
+      },
+    ],
+  },
+  {
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#746855", // Cor do texto no mapa
+      },
+    ],
+  },
+  {
+    elementType: "labels.text.stroke",
+    stylers: [
+      {
+        color: "#242f3e", // Cor do contorno do texto no mapa
+      },
+    ],
+  },
+  {
+    featureType: "administrative.locality",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#d59563", // Cor do texto para localidades administrativas
+      },
+    ],
+  },
+  {
+    featureType: "poi",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#d59563", // Cor do texto para pontos de interesse
+      },
+    ],
+  },
+  {
+    featureType: "poi.park",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#263c3f", // Cor do parque
+      },
+    ],
+  },
+  {
+    featureType: "poi.park",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#6b9a76", // Cor do texto para parques
+      },
+    ],
+  },
+  {
+    featureType: "road",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#38414e", // Cor da estrada
+      },
+    ],
+  },
+  {
+    featureType: "road",
+    elementType: "geometry.stroke",
+    stylers: [
+      {
+        color: "#212a37", // Cor do contorno da estrada
+      },
+    ],
+  },
+  {
+    featureType: "road",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#9ca5b3", // Cor do texto para estradas
+      },
+    ],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#746855", // Cor da estrada principal
+      },
+    ],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "geometry.stroke",
+    stylers: [
+      {
+        color: "#1f2835", // Cor do contorno da estrada principal
+      },
+    ],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#f3d19c", // Cor do texto para estradas principais
+      },
+    ],
+  },
+  {
+    featureType: "transit",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#2f3948", // Cor da geometria do trânsito
+      },
+    ],
+  },
+  {
+    featureType: "transit.station",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#d59563", // Cor do texto para estações de trânsito
+      },
+    ],
+  },
+  {
+    featureType: "water",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#17263c", // Cor da água
+      },
+    ],
+  },
+  {
+    featureType: "water",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#515c6d", // Cor do texto para a água
+      },
+    ],
+  },
+  {
+    featureType: "water",
+    elementType: "labels.text.stroke",
+    stylers: [
+      {
+        color: "#17263c", // Cor do contorno do texto para a água
+      },
+    ],
+  },
+];
+
