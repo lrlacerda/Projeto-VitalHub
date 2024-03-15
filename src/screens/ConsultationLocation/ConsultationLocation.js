@@ -191,10 +191,6 @@ export const ConsultationLocation = ({ navigation }) => {
         )}
         {markerImageVisible && (
           <View style={styles.markerImageContainer}>
-            {/* <Image
-            source={require("./assets/image/entrega_hospital_igesp_fotofredcasagrande_24-03-2023-84-scaled.jpg")} // Substitua pelo caminho da sua imagem
-            style={styles.markerImage}
-          /> */}
           </View>
         )}
       </View>
