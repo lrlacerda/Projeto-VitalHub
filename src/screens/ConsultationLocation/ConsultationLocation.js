@@ -32,6 +32,7 @@ import { ContentAccount } from "../../components/ContentAccount/ContentAccount";
 import { LinkAccount } from "../../components/Links/Links";
 
 import { ActivityIndicator, Image, StyleSheet, Text, View, useColorScheme } from "react-native";
+import { WazeButton } from "../../components/Waze/Waze";
 
 export const ConsultationLocation = ({ navigation }) => {
   const mapReference = useRef(null);
@@ -122,113 +123,105 @@ export const ConsultationLocation = ({ navigation }) => {
   }
 
   return (
-    <Container>
-      <View style={styles.container}>
-        {initialPosition != null ? (
-          <MapView
-            ref={mapReference}
-            initialRegion={{
-              latitude: initialPosition.coords.latitude,
-              longitude: initialPosition.coords.longitude,
-              latitudeDelta: 0.005,
-              longitudeDelta: 0.005,
-            }}
-            provider={PROVIDER_GOOGLE}
-            customMapStyle={mapTheme}
-            style={styles.map}
-          >
-            <Marker
-              coordinate={{
-                latitude: initialPosition.coords.latitude,
-                longitude: initialPosition.coords.longitude,
-              }}
-              title="Posição inicial"
-              description=" Estou aqui"
-              pinColor="#49b3ba"
-              onPress={handleMarkerPress}
-            />
+      <Container>
+          <View style={styles.container}>
+              {initialPosition != null ? (
+                  <MapView
+                      ref={mapReference}
+                      initialRegion={{
+                          latitude: initialPosition.coords.latitude,
+                          longitude: initialPosition.coords.longitude,
+                          latitudeDelta: 0.005,
+                          longitudeDelta: 0.005,
+                      }}
+                      provider={PROVIDER_GOOGLE}
+                      customMapStyle={mapTheme}
+                      style={styles.map}
+                  >
+                      <Marker
+                          coordinate={{
+                              latitude: initialPosition.coords.latitude,
+                              longitude: initialPosition.coords.longitude,
+                          }}
+                          title="Posição inicial"
+                          description=" Estou aqui"
+                          pinColor="#49b3ba"
+                          onPress={handleMarkerPress}
+                      />
 
-            <MapViewDirections
-              origin={initialPosition.coords}
-              destination={{
-                latitude: -23.5329,
-                longitude: -46.7926,
-                latitudeDelta: 0.005,
-                longitudeDelta: 0.005,
-              }}
-              strokeWidth={5}
-              strokeColor="#496bba"
-              apikey={mapskey}
-            />
+                      <MapViewDirections
+                          origin={initialPosition.coords}
+                          destination={{
+                              latitude: -23.5329,
+                              longitude: -46.7926,
+                              latitudeDelta: 0.005,
+                              longitudeDelta: 0.005,
+                          }}
+                          strokeWidth={5}
+                          strokeColor="#496bba"
+                          apikey={mapskey}
+                      />
+                  </MapView>
+              ) : (
+                  <View style={styles.loadingContainer}>
+                      <ActivityIndicator />
+                      <Text>Carregando...</Text>
+                  </View>
+              )}
+              {markerImageVisible && (
+                  <View style={styles.markerImageContainer}></View>
+              )}
+          </View>
 
-            {/* Adicionando o marcador para o destino */}
-            {/* <Marker
-            coordinate={{
-              latitude: finalPosition.latitude,
-              longitude: finalPosition.longitude,
-            }}
-            title="Destino"
-            description="Local de destino"
-            pinColor="#ff0000"
+          <ContainerLocationText>
+              <TextConsultationLocation>
+                  Clínica Natureh
+              </TextConsultationLocation>
+              <TextConsultationLocation2>
+                  São Paulo, SP
+              </TextConsultationLocation2>
+          </ContainerLocationText>
+          <ContainerInputs>
+              <TextLocationInput>Endereço</TextLocationInput>
+
+              <ContainerTextLocation>
+                  <TextRecordPaciente2></TextRecordPaciente2>
+              </ContainerTextLocation>
+              <ContainerLocation2>
+                  <ContainerLocation3>
+                      <TextLocationInput>Número</TextLocationInput>
+
+                      <ContainerTextLocation2>
+                          <TextRecordPaciente2></TextRecordPaciente2>
+                      </ContainerTextLocation2>
+                  </ContainerLocation3>
+
+                  <ContainerLocation3>
+                      <TextLocationInput>Bairro</TextLocationInput>
+
+                      <ContainerTextLocation2
+                          onPress={() =>
+                              NavigationPreloadManager.replace("Main")
+                          }
+                      >
+                          <TextRecordPaciente2>Voltar</TextRecordPaciente2>
+                      </ContainerTextLocation2>
+                  </ContainerLocation3>
+              </ContainerLocation2>
+          </ContainerInputs>
+
+          <WazeButton
+              latitude={-23.5329}
+              longitude={-46.7926}
+              label="Clínica Natureh"
           />
-
-          <MapViewDirections
-            origin={finalPosition.coords}
-            destination={{
-              latitude: finalPosition.latitude,
-              longitude: finalPosition.longitude,
-            }}
-            strokeWidth={5}
-            strokeColor="#496bba"
-            apikey={mapskey}
-          /> */}
-          </MapView>
-        ) : (
-          <View style={styles.loadingContainer}>
-            <ActivityIndicator />
-            <Text>Carregando...</Text>
-          </View>
-        )}
-        {markerImageVisible && (
-          <View style={styles.markerImageContainer}>
-          </View>
-        )}
-      </View>
-
-      <ContainerLocationText>
-        <TextConsultationLocation>Clínica Natureh</TextConsultationLocation>
-        <TextConsultationLocation2>São Paulo, SP</TextConsultationLocation2>
-      </ContainerLocationText>
-      <ContainerInputs>
-        <TextLocationInput>Endereço</TextLocationInput>
-
-        <ContainerTextLocation>
-          <TextRecordPaciente2></TextRecordPaciente2>
-        </ContainerTextLocation>
-        <ContainerLocation2>
-          <ContainerLocation3>
-            <TextLocationInput>Número</TextLocationInput>
-
-            <ContainerTextLocation2>
-              <TextRecordPaciente2></TextRecordPaciente2>
-            </ContainerTextLocation2>
-          </ContainerLocation3>
-
-          <ContainerLocation3>
-            <TextLocationInput>Bairro</TextLocationInput>
-
-            <ContainerTextLocation2
-              onPress={() => NavigationPreloadManager.replace("Main")}
-            >
-              <TextRecordPaciente2>Voltar</TextRecordPaciente2>
-            </ContainerTextLocation2>
-          </ContainerLocation3>
-        </ContainerLocation2>
-      </ContainerInputs>
-      <ContentAccount>
-        <LinkAccount onPress={() => PatientConsultations()}>Voltar</LinkAccount>
-      </ContentAccount>
-    </Container>
+          
+          <ContentAccount>
+              <LinkAccount onPress={() => PatientConsultations()}>
+                  Voltar
+              </LinkAccount>
+          </ContentAccount>
+      </Container>
   );
 };
 

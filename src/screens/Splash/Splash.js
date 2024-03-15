@@ -28,25 +28,20 @@ export const SplashScreen = () => {
   }, [navigation]);
 
   return (
-    <View style={styles.container}>
-      <Logo source={require("../../assets/VitalHubLogo.png")} />
+      <View style={styles.container}>
+          <Logo source={require("../../assets/VitalHubLogo.png")} />
 
-      {/* Exibe a animação de splash */}
-      <LottieView
-        source={splashjson}
-        autoPlay
-        loop={false}
-        resizeMode="contain"
-        style={styles.animation}
-        onAnimationFinish={() => setIsLoading(false)} // Define isLoading como false quando a animação terminar
-      />
-      <Text style={styles.txt}>Ajudando você a cuidar da sua saúde!</Text>
-
-      {/* Exibe a barra de carregamento se isLoading for true */}
-      {/* {isLoading && (
-        <ActivityIndicator style={styles.loader} size={80} color="#60BFC5" />
-      )} */}
-    </View>
+          {/* Exibe a animação de splash */}
+          <LottieView
+              source={splashjson}
+              autoPlay
+              loop={false}
+              resizeMode="contain"
+              style={styles.animation}
+              onAnimationFinish={() => setIsLoading(false)} // Define isLoading como false quando a animação terminar
+          />
+          <Text style={styles.txt}>Seu bem-estar ao alcance das mãos!</Text>
+      </View>
   );
 };
 
