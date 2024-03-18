@@ -1,7 +1,6 @@
 import { Image, Text } from "react-native";
 import React from 'react';
 import { Linking, TouchableOpacity } from 'react-native';
-import { FontAwesome5 } from "@expo/vector-icons";
 
 export const WazeButton = ({ latitude, longitude, label }) => {
     const openWaze = () => {

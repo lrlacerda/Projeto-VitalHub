@@ -17,7 +17,7 @@ import {
 import { LinkRecordInsertion } from "../../components/Links/Links";
 
 //expo Camera
-import { Camera, CameraType, Constants } from "expo-camera";
+import { Camera } from "expo-camera";
 import * as MediaLibrary from "expo-media-library";
 import { FontAwesome } from "@expo/vector-icons";
 

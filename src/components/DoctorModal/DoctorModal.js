@@ -21,6 +21,7 @@ const DoctorModal = ({
   navigation,
   ...rest
 }) => {
+  
   //Chamar a função ConsultationLocation
   async function ConsultationLocation() {
     navigation.replace("ConsultationLocation");
