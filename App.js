@@ -1,6 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Navegacao } from "./src/screens/Navegacao/Navegacao";
 import { Login } from "./src/screens/Login/Login";
 import { ForgotPassword } from "./src/screens/ForgotPassword/ForgotPassword";
 import { Register } from "./src/screens/Register/Register";
